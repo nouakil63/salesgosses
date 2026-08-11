@@ -104,7 +104,35 @@
   setInterval(majPastilles, 60000);
 
   /* ------------------------------------------------------------------
-     5. Vidéo du hero : repli propre si le fichier est absent ou refusé
+     5. Page carte : surligne la famille en cours de lecture
+     ------------------------------------------------------------------ */
+  var liensFamilles = document.querySelectorAll('.familles a');
+
+  if (liensFamilles.length && 'IntersectionObserver' in window) {
+    var suivi = new IntersectionObserver(
+      function (entrees) {
+        entrees.forEach(function (entree) {
+          if (!entree.isIntersecting) return;
+
+          var id = entree.target.id;
+          liensFamilles.forEach(function (lien) {
+            lien.classList.toggle(
+              'est-active',
+              lien.getAttribute('href') === '#' + id
+            );
+          });
+        });
+      },
+      { rootMargin: '-45% 0px -50% 0px' }
+    );
+
+    document.querySelectorAll('.famille').forEach(function (section) {
+      suivi.observe(section);
+    });
+  }
+
+  /* ------------------------------------------------------------------
+     6. Vidéo du hero : repli propre si le fichier est absent ou refusé
      ------------------------------------------------------------------ */
   var video = document.querySelector('.hero__video');
 

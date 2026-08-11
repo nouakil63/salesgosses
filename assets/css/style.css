@@ -1,26 +1,31 @@
 /* ==========================================================================
    SALES GOSSES — Deauville
    Feuille de style principale
-   Charte dérivée du logo : vert sauge #9AA279 sur blanc.
+
+   DIRECTION : la plaque émaillée de bistrot.
+   Le logo est du blanc sur un aplat vert plein : c'est le vocabulaire des
+   plaques émaillées de café. On en reprend les règles :
+   aplats francs, aucun filet fin, keyline épaisse en retrait du bord,
+   séparation des sections par changement de fond et non par un trait.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Jetons de design (design tokens)
+   1. Jetons de design
    -------------------------------------------------------------------------- */
 :root {
-  /* Couleurs — le noir est un noir olive, dérivé du vert du logo, jamais du #000 */
+  /* Le noir est un noir olive, dérivé du vert du logo. Jamais de #000. */
   --nuit:        #11140E;
-  --nuit-haut:   #191D14;
-  --nuit-carte:  #1F2418;
-  --sauge:       #9AA279;  /* couleur exacte du logo */
-  --sauge-clair: #C3CBA4;
-  --craie:       #F4F3EC;
-  --craie-doux:  rgba(244, 243, 236, 0.62);
-  --ambre:       #D99B34;  /* accent unique : la pression. À utiliser avec parcimonie. */
+  --nuit-haut:   #1B2016;
+  --nuit-bloc:   #232A1C;
 
-  /* Traits */
-  --filet:       rgba(154, 162, 121, 0.28);
-  --filet-fort:  rgba(154, 162, 121, 0.55);
+  --sauge:       #9AA279;  /* couleur exacte échantillonnée sur le logo */
+  --sauge-fonce: #7B8460;
+  --sauge-clair: #C3CBA4;
+
+  --craie:       #F4F3EC;
+  --craie-doux:  rgba(244, 243, 236, 0.68);
+
+  --ambre:       #D99B34;  /* la pression. Rare, jamais décoratif. */
 
   /* Typographie */
   --enseigne: "Big Shoulders Display", "Haettenschweiler", "Arial Narrow", sans-serif;
@@ -28,15 +33,18 @@
 
   /* Rythme */
   --gouttiere:  clamp(20px, 5vw, 64px);
-  --section-y:  clamp(72px, 11vh, 140px);
+  --section-y:  clamp(72px, 11vh, 132px);
   --max:        1240px;
 
-  /* Mouvement */
-  --transition: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  /* Épaisseurs : une plaque émaillée n'a pas de trait à 1px. */
+  --keyline:    3px;
+  --rayon:      12px;
+
+  --transition: 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* --------------------------------------------------------------------------
-   2. Réinitialisation et base
+   2. Base
    -------------------------------------------------------------------------- */
 *,
 *::before,
@@ -53,7 +61,7 @@ body {
   color: var(--craie);
   font-family: var(--texte);
   font-size: 16px;
-  line-height: 1.65;
+  line-height: 1.62;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -67,19 +75,17 @@ a { color: inherit; text-decoration: none; }
 h1, h2, h3, h4 {
   font-family: var(--enseigne);
   font-weight: 800;
-  line-height: 0.92;
-  letter-spacing: 0.005em;
+  line-height: 0.9;
   text-transform: uppercase;
   margin: 0;
 }
 
 p { margin: 0 0 1em; }
 
-/* Accessibilité : la mise au point clavier doit toujours être visible */
 :focus-visible {
-  outline: 2px solid var(--ambre);
+  outline: var(--keyline) solid var(--ambre);
   outline-offset: 3px;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 .saut-contenu {
@@ -88,14 +94,15 @@ p { margin: 0 0 1em; }
   top: 0;
   background: var(--sauge);
   color: var(--nuit);
-  padding: 12px 20px;
+  padding: 14px 22px;
+  border-radius: 8px;
+  font-weight: 700;
   z-index: 999;
-  font-weight: 600;
 }
 .saut-contenu:focus { left: 12px; top: 12px; }
 
 /* --------------------------------------------------------------------------
-   3. Utilitaires de mise en page
+   3. Mise en page
    -------------------------------------------------------------------------- */
 .contenant {
   width: 100%;
@@ -106,80 +113,95 @@ p { margin: 0 0 1em; }
 
 .section { padding-block: var(--section-y); }
 
-.section--filet { border-top: 1px solid var(--filet); }
+/* Les sections se distinguent par un aplat, pas par un trait. */
+.section--sombre { background: var(--nuit-haut); }
 
-/* Sur-titre : reprend le lettrage espacé du bas du logo */
-.surtitre {
+/* Bloc inversé : fond sauge, encre sombre. Reprend directement le logo. */
+.section--sauge {
+  background: var(--sauge);
+  color: var(--nuit);
+}
+.section--sauge .chapo { color: rgba(17, 20, 14, 0.76); }
+
+/* Étiquette de section : une petite plaque, pas un mot suivi d'un trait. */
+.etiquette {
+  display: inline-block;
+  padding: 7px 15px 6px;
+  margin: 0 0 20px;
+  background: var(--sauge);
+  color: var(--nuit);
+  border-radius: 6px;
   font-family: var(--texte);
   font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.32em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--sauge);
-  margin: 0 0 18px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
+  line-height: 1;
 }
-.surtitre::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: var(--filet);
-  max-width: 120px;
+.section--sauge .etiquette {
+  background: var(--nuit);
+  color: var(--sauge);
 }
 
 .titre-section {
-  font-size: clamp(38px, 7vw, 82px);
-  max-width: 16ch;
-  margin-bottom: 24px;
+  font-size: clamp(40px, 7.4vw, 88px);
+  max-width: 15ch;
+  margin-bottom: 22px;
 }
 
 .chapo {
   font-size: clamp(16px, 1.6vw, 19px);
   color: var(--craie-doux);
-  max-width: 56ch;
+  max-width: 54ch;
 }
 
 .accent { color: var(--sauge); }
 
 /* --------------------------------------------------------------------------
-   4. Boutons
+   4. Boutons — des blocs pleins, sans contour fin
    -------------------------------------------------------------------------- */
 .bouton {
-  --fond: var(--sauge);
-  --encre: var(--nuit);
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 15px 28px;
-  background: var(--fond);
-  color: var(--encre);
+  padding: 16px 30px;
+  background: var(--sauge);
+  color: var(--nuit);
   font-family: var(--texte);
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
-  border: 1px solid var(--fond);
-  border-radius: 2px;
+  border: 0;
+  border-radius: 8px;
   cursor: pointer;
-  transition: transform var(--transition), background var(--transition), color var(--transition);
+  transition: transform var(--transition), background var(--transition);
 }
-.bouton:hover { transform: translateY(-2px); }
+.bouton:hover {
+  transform: translateY(-2px);
+  background: var(--sauge-clair);
+}
 
-.bouton--fantome {
-  --fond: transparent;
-  --encre: var(--craie);
-  border-color: var(--filet-fort);
+/* Variante creuse : keyline épaisse en retrait, comme le liseré d'une plaque */
+.bouton--creux {
+  background: transparent;
+  color: var(--craie);
+  box-shadow: inset 0 0 0 var(--keyline) var(--sauge-fonce);
 }
-.bouton--fantome:hover {
+.bouton--creux:hover {
   background: var(--craie);
   color: var(--nuit);
-  border-color: var(--craie);
+  box-shadow: inset 0 0 0 var(--keyline) var(--craie);
 }
 
+.section--sauge .bouton {
+  background: var(--nuit);
+  color: var(--sauge);
+}
+.section--sauge .bouton:hover { background: #05070B; }
+
 /* --------------------------------------------------------------------------
-   5. En-tête et navigation
+   5. En-tête
    -------------------------------------------------------------------------- */
 .entete {
   position: fixed;
@@ -189,88 +211,71 @@ p { margin: 0 0 1em; }
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 18px var(--gouttiere);
-  transition: background var(--transition), padding var(--transition), border-color var(--transition);
-  border-bottom: 1px solid transparent;
+  padding: 16px var(--gouttiere);
+  transition: background var(--transition), padding var(--transition);
 }
 .entete.est-collee {
-  background: rgba(17, 20, 14, 0.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom-color: var(--filet);
-  padding-block: 12px;
+  background: var(--nuit);
+  padding-block: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.entete__logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-}
+.entete__logo { display: flex; align-items: center; flex-shrink: 0; }
 .entete__logo img {
-  width: 52px;
-  height: 52px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
   transition: width var(--transition), height var(--transition);
 }
-.entete.est-collee .entete__logo img { width: 42px; height: 42px; }
+.entete.est-collee .entete__logo img { width: 44px; height: 44px; }
 
-.nav { display: flex; align-items: center; gap: 4px; }
+.nav { display: flex; align-items: center; gap: 6px; }
 
 .nav a {
-  position: relative;
   padding: 10px 16px;
+  border-radius: 6px;
   font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
+  font-weight: 700;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--craie-doux);
-  transition: color var(--transition);
+  transition: color var(--transition), background var(--transition);
 }
-.nav a::after {
-  content: "";
-  position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 4px;
-  height: 1px;
+.nav a:hover { color: var(--craie); background: var(--nuit-bloc); }
+
+/* La page courante est une plaque pleine, pas un soulignement */
+.nav a[aria-current="page"] {
   background: var(--sauge);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--transition);
+  color: var(--nuit);
 }
-.nav a:hover,
-.nav a[aria-current="page"] { color: var(--craie); }
-.nav a:hover::after,
-.nav a[aria-current="page"]::after { transform: scaleX(1); }
 
 .entete__action { flex-shrink: 0; }
 
-/* Bouton menu — masqué au-dessus de 900px */
 .burger {
   display: none;
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
   padding: 0;
-  background: none;
-  border: 1px solid var(--filet-fort);
-  border-radius: 2px;
+  background: var(--nuit-bloc);
+  border: 0;
+  border-radius: 8px;
   cursor: pointer;
 }
 .burger span {
   display: block;
   width: 20px;
-  height: 1.5px;
+  height: 2.5px;
   margin: 4px auto;
   background: var(--craie);
+  border-radius: 2px;
   transition: transform var(--transition), opacity var(--transition);
 }
-.burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-.burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+.burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
 /* --------------------------------------------------------------------------
-   6. Hero — vidéo plein cadre
+   6. Hero
    -------------------------------------------------------------------------- */
 .hero {
   position: relative;
@@ -289,92 +294,88 @@ p { margin: 0 0 1em; }
   z-index: 0;
 }
 
-/* Double voile : un dégradé vertical pour la lisibilité, un voile sauge pour teinter la vidéo */
 .hero__voile {
   position: absolute;
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(to top, var(--nuit) 2%, rgba(17, 20, 14, 0.55) 45%, rgba(17, 20, 14, 0.72) 100%),
-    linear-gradient(to right, rgba(154, 162, 121, 0.14), transparent 60%);
+    linear-gradient(to top, var(--nuit) 1%, rgba(17, 20, 14, 0.5) 48%, rgba(17, 20, 14, 0.68) 100%);
 }
 
 .hero__contenu {
   position: relative;
   z-index: 2;
   width: 100%;
-  padding-block: clamp(48px, 10vh, 110px);
+  padding-block: clamp(44px, 9vh, 100px);
 }
 
 .hero__marque {
-  width: clamp(96px, 12vw, 132px);
+  width: clamp(96px, 12vw, 130px);
   height: auto;
   border-radius: 50%;
-  margin-bottom: 28px;
+  margin-bottom: 26px;
 }
 
 .hero h1 {
-  font-size: clamp(56px, 13vw, 168px);
+  font-size: clamp(58px, 13.5vw, 176px);
   line-height: 0.82;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 .hero h1 .ligne { display: block; }
-.hero h1 .ligne--decalee { padding-left: clamp(0px, 6vw, 96px); color: var(--sauge); }
+.hero h1 .ligne--decalee { padding-left: clamp(0px, 6vw, 92px); color: var(--sauge); }
 
 .hero__chapo {
   font-size: clamp(16px, 1.8vw, 20px);
-  max-width: 44ch;
+  max-width: 42ch;
   color: var(--craie-doux);
-  margin-bottom: 32px;
+  margin-bottom: 30px;
 }
 
-.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 44px; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 38px; }
 
-/* Bandeau d'infos en bas de hero */
+/* Bandeau d'infos : une rangée de petites plaques, pas un filet horizontal */
 .hero__bandeau {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px 40px;
-  padding-top: 24px;
-  border-top: 1px solid var(--filet);
+  gap: 8px;
+}
+.hero__bandeau > * {
+  padding: 10px 16px;
+  background: rgba(35, 42, 28, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 8px;
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
   color: var(--craie-doux);
 }
-.hero__bandeau strong { color: var(--sauge); font-weight: 700; }
+.hero__bandeau strong { color: var(--sauge); font-weight: 800; }
 
-/* Pastille "ouvert / fermé", calculée en JS */
-.pastille {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
+.pastille { display: inline-flex; align-items: center; gap: 9px; }
 .pastille::before {
   content: "";
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--ambre);
-  box-shadow: 0 0 0 0 rgba(217, 155, 52, 0.55);
   animation: pulsation 2.4s infinite;
 }
 .pastille[data-etat="ferme"]::before {
-  background: var(--filet-fort);
+  background: var(--sauge-fonce);
   animation: none;
-  box-shadow: none;
 }
 @keyframes pulsation {
   0%   { box-shadow: 0 0 0 0 rgba(217, 155, 52, 0.5); }
-  70%  { box-shadow: 0 0 0 9px rgba(217, 155, 52, 0); }
+  70%  { box-shadow: 0 0 0 10px rgba(217, 155, 52, 0); }
   100% { box-shadow: 0 0 0 0 rgba(217, 155, 52, 0); }
 }
 
 /* --------------------------------------------------------------------------
-   7. SIGNATURE — Le mur des 11 becs
-   La numérotation 01→11 n'est pas décorative : c'est ainsi qu'un bar
-   désigne ses tireuses. Chaque bec est une ligne du mur.
+   7. SIGNATURE — Le mur des becs
+   Chaque bec est une bande pleine, comme une ardoise de bar.
+   La numérotation 01→11 correspond aux tireuses réelles du comptoir.
    -------------------------------------------------------------------------- */
 .becs { background: var(--nuit-haut); }
 
@@ -384,111 +385,115 @@ p { margin: 0 0 1em; }
   align-items: flex-end;
   justify-content: space-between;
   gap: 24px;
-  margin-bottom: 44px;
+  margin-bottom: 40px;
 }
 
-.mur { border-top: 1px solid var(--filet); }
+.mur {
+  border-radius: var(--rayon);
+  overflow: hidden;
+}
 
 .bec {
   display: grid;
-  grid-template-columns: 64px 1fr auto auto;
-  align-items: baseline;
-  gap: 20px;
-  padding: 18px 8px;
-  border-bottom: 1px solid var(--filet);
-  transition: background var(--transition), padding-left var(--transition);
+  grid-template-columns: 72px 1fr auto auto;
+  align-items: center;
+  gap: 22px;
+  padding-right: 22px;
+  background: var(--nuit-bloc);
+  transition: background var(--transition);
 }
-.bec:hover {
-  background: rgba(154, 162, 121, 0.07);
-  padding-left: 20px;
-}
+/* Alternance de bandes : c'est le contraste qui sépare, pas un trait */
+.bec:nth-child(even) { background: rgba(35, 42, 28, 0.42); }
+.bec:hover { background: var(--sauge); color: var(--nuit); }
 
+/* Le numéro est un bloc plein, comme la pastille gravée d'une tireuse */
 .bec__numero {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sauge-fonce);
+  color: var(--nuit);
   font-family: var(--enseigne);
-  font-size: 30px;
-  font-weight: 500;
-  color: var(--sauge);
-  opacity: 0.55;
-  transition: opacity var(--transition), color var(--transition);
+  font-size: 28px;
+  font-weight: 800;
+  padding-block: 22px;
+  transition: background var(--transition);
 }
-.bec:hover .bec__numero { opacity: 1; color: var(--ambre); }
+.bec:hover .bec__numero { background: var(--ambre); }
 
 .bec__nom {
   font-family: var(--enseigne);
-  font-size: clamp(24px, 3.4vw, 40px);
-  text-transform: uppercase;
+  font-size: clamp(26px, 3.4vw, 42px);
   line-height: 1;
 }
 
 .bec__style {
   font-size: 12px;
-  letter-spacing: 0.14em;
+  font-weight: 600;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
   color: var(--craie-doux);
   white-space: nowrap;
 }
+.bec:hover .bec__style { color: rgba(17, 20, 14, 0.72); }
 
 .bec__degre {
   font-family: var(--enseigne);
-  font-size: 22px;
+  font-size: 24px;
   color: var(--sauge-clair);
   white-space: nowrap;
 }
+.bec:hover .bec__degre { color: var(--nuit); }
 
 .becs__note {
-  margin-top: 22px;
+  margin-top: 24px;
   font-size: 13px;
   color: var(--craie-doux);
 }
 
 /* --------------------------------------------------------------------------
-   8. Grille de cartes (aperçu de la carte)
+   8. Plaques (grille de cartes)
+   Keyline épaisse en retrait du bord : le liseré d'une plaque émaillée.
    -------------------------------------------------------------------------- */
 .grille-cartes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-  margin-top: 44px;
+  grid-template-columns: repeat(auto-fit, minmax(258px, 1fr));
+  gap: 16px;
+  margin-top: 40px;
 }
 
-.carte {
+.plaque {
   position: relative;
-  padding: 32px 26px 28px;
-  background: var(--nuit-carte);
-  border: 1px solid var(--filet);
-  border-radius: 3px;
-  overflow: hidden;
-  transition: transform var(--transition), border-color var(--transition);
+  padding: 30px 26px 28px;
+  background: var(--nuit-bloc);
+  border-radius: var(--rayon);
+  box-shadow: inset 0 0 0 var(--keyline) rgba(154, 162, 121, 0.22);
+  transition: transform var(--transition), box-shadow var(--transition);
 }
-.carte::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 2px;
-  background: var(--sauge);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--transition);
+.plaque:hover {
+  transform: translateY(-3px);
+  box-shadow: inset 0 0 0 var(--keyline) var(--sauge);
 }
-.carte:hover { transform: translateY(-3px); border-color: var(--filet-fort); }
-.carte:hover::before { transform: scaleX(1); }
 
-.carte h3 {
-  font-size: 30px;
-  margin-bottom: 12px;
+.section--sauge .plaque {
+  background: rgba(17, 20, 14, 0.09);
+  box-shadow: inset 0 0 0 var(--keyline) rgba(17, 20, 14, 0.24);
 }
-.carte p {
-  font-size: 15px;
-  color: var(--craie-doux);
-  margin-bottom: 0;
-}
-.carte__compte {
+.section--sauge .plaque:hover { box-shadow: inset 0 0 0 var(--keyline) var(--nuit); }
+.section--sauge .plaque p { color: rgba(17, 20, 14, 0.76); }
+.section--sauge .plaque__compte { color: var(--nuit); }
+
+.plaque h3 { font-size: 31px; margin-bottom: 11px; }
+.plaque p { font-size: 15px; color: var(--craie-doux); margin-bottom: 0; }
+
+.plaque__compte {
   display: block;
   font-family: var(--enseigne);
-  font-size: 46px;
+  font-size: 48px;
   color: var(--sauge);
   line-height: 1;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 /* --------------------------------------------------------------------------
@@ -497,7 +502,7 @@ p { margin: 0 0 1em; }
 .bande-photo {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
+  gap: 4px;
 }
 .bande-photo figure {
   position: relative;
@@ -509,72 +514,85 @@ p { margin: 0 0 1em; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(0.85) brightness(0.86);
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter var(--transition);
+  filter: saturate(0.86) brightness(0.85);
+  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), filter var(--transition);
 }
-.bande-photo figure:hover img {
-  transform: scale(1.05);
-  filter: saturate(1) brightness(1);
-}
+.bande-photo figure:hover img { transform: scale(1.05); filter: none; }
 
 /* --------------------------------------------------------------------------
-   10. Bloc groupes
+   10. Duo et listes
    -------------------------------------------------------------------------- */
 .duo {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(32px, 6vw, 80px);
+  gap: clamp(32px, 6vw, 76px);
   align-items: center;
 }
 
-.liste-atouts { list-style: none; margin: 28px 0 32px; padding: 0; }
+/* Bandes alternées, jamais de bordure basse à 1px */
+.liste-atouts { list-style: none; margin: 26px 0 32px; padding: 0; }
 .liste-atouts li {
   display: flex;
-  gap: 16px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--filet);
+  align-items: baseline;
+  gap: 18px;
+  padding: 15px 18px;
+  border-radius: 8px;
   font-size: 15px;
 }
+.liste-atouts li:nth-child(odd) { background: rgba(154, 162, 121, 0.1); }
+.section--sauge .liste-atouts li:nth-child(odd) { background: rgba(17, 20, 14, 0.1); }
+
 .liste-atouts li strong {
   font-family: var(--enseigne);
-  font-size: 26px;
+  font-size: 28px;
   color: var(--sauge);
-  min-width: 92px;
+  min-width: 96px;
   line-height: 1;
 }
+.section--sauge .liste-atouts li strong { color: var(--nuit); }
 
 .cadre-photo {
-  position: relative;
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  border-radius: 3px;
+  border-radius: var(--rayon);
 }
-.cadre-photo img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.88); }
+.cadre-photo img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9); }
+
+/* Cadre de plan : liseré épais, sans trait fin */
+.cadre-plan {
+  border-radius: var(--rayon);
+  overflow: hidden;
+  box-shadow: inset 0 0 0 var(--keyline) var(--sauge-fonce);
+  line-height: 0;
+}
+.cadre-plan iframe {
+  border: 0;
+  filter: grayscale(0.45) contrast(1.05) brightness(0.85);
+}
 
 /* --------------------------------------------------------------------------
-   11. Bandeau défilant (ticker)
+   11. Bandeau défilant — aplat sauge, encre sombre
    -------------------------------------------------------------------------- */
 .ticker {
   overflow: hidden;
-  padding-block: 22px;
-  border-block: 1px solid var(--filet);
-  background: var(--nuit-haut);
+  padding-block: 16px;
+  background: var(--sauge);
   user-select: none;
 }
 .ticker__piste {
   display: flex;
   width: max-content;
-  animation: defile 42s linear infinite;
+  animation: defile 44s linear infinite;
 }
 .ticker__piste span {
   font-family: var(--enseigne);
-  font-size: clamp(26px, 3.4vw, 44px);
+  font-size: clamp(28px, 3.6vw, 46px);
   text-transform: uppercase;
-  color: var(--sauge);
-  padding-inline: 26px;
+  color: var(--nuit);
+  padding-inline: 24px;
   white-space: nowrap;
 }
-.ticker__piste span:nth-child(even) { color: rgba(244, 243, 236, 0.22); }
+.ticker__piste span:nth-child(even) { color: rgba(17, 20, 14, 0.34); }
 @keyframes defile {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -584,50 +602,54 @@ p { margin: 0 0 1em; }
    12. Pied de page
    -------------------------------------------------------------------------- */
 .pied {
-  padding-block: clamp(56px, 8vh, 90px) 28px;
-  border-top: 1px solid var(--filet);
+  background: var(--nuit-haut);
+  padding-block: clamp(54px, 8vh, 86px) 26px;
 }
 .pied__grille {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
   gap: 40px 24px;
-  margin-bottom: 56px;
+  margin-bottom: 44px;
 }
-.pied__logo { width: 74px; height: 74px; border-radius: 50%; margin-bottom: 18px; }
+.pied__logo { width: 76px; height: 76px; border-radius: 50%; margin-bottom: 18px; }
 .pied h4 {
-  font-size: 13px;
-  font-family: var(--texte);
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  color: var(--sauge);
+  display: inline-block;
+  padding: 6px 13px 5px;
   margin-bottom: 16px;
+  background: var(--sauge);
+  color: var(--nuit);
+  border-radius: 6px;
+  font-family: var(--texte);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 .pied ul { list-style: none; margin: 0; padding: 0; }
-.pied li { margin-bottom: 9px; font-size: 15px; color: var(--craie-doux); }
-.pied a:hover { color: var(--craie); }
+.pied li { margin-bottom: 10px; font-size: 15px; color: var(--craie-doux); }
+.pied a:hover { color: var(--sauge-clair); }
+
+/* Séparation par un aplat, pas par un trait */
 .pied__bas {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 12px;
-  padding-top: 22px;
-  border-top: 1px solid var(--filet);
+  padding: 18px 22px;
+  background: var(--nuit-bloc);
+  border-radius: 8px;
   font-size: 12px;
-  color: rgba(244, 243, 236, 0.4);
+  color: rgba(244, 243, 236, 0.46);
 }
 
 /* --------------------------------------------------------------------------
-   13. Bannière de page (pages secondaires)
+   13. Bannière des pages secondaires
    -------------------------------------------------------------------------- */
 .banniere {
-  position: relative;
-  padding-block: clamp(140px, 22vh, 220px) clamp(48px, 7vh, 80px);
-  border-bottom: 1px solid var(--filet);
-  background:
-    radial-gradient(120% 140% at 15% 0%, rgba(154, 162, 121, 0.16), transparent 55%),
-    var(--nuit-haut);
+  padding-block: clamp(140px, 22vh, 216px) clamp(48px, 7vh, 76px);
+  background: var(--nuit-haut);
 }
-.banniere h1 { font-size: clamp(46px, 10vw, 112px); }
+.banniere h1 { font-size: clamp(48px, 10vw, 118px); }
 .banniere .chapo { margin-top: 18px; }
 
 /* --------------------------------------------------------------------------
@@ -635,8 +657,8 @@ p { margin: 0 0 1em; }
    -------------------------------------------------------------------------- */
 .apparait {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(20px);
+  transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .apparait.est-visible { opacity: 1; transform: none; }
 
@@ -644,26 +666,23 @@ p { margin: 0 0 1em; }
    15. Adaptatif
    -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
-  .burger { display: block; }
+  .burger { display: block; position: relative; z-index: 95; }
 
   .nav {
     position: fixed;
     inset: 0;
     flex-direction: column;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     background: var(--nuit);
     transform: translateX(100%);
     transition: transform var(--transition);
     z-index: 90;
   }
   .nav.est-ouvert { transform: none; }
-  .nav a { font-size: 22px; letter-spacing: 0.1em; padding: 14px 24px; }
-  .nav a::after { display: none; }
+  .nav a { font-size: 22px; letter-spacing: 0.08em; padding: 14px 26px; }
 
   .entete__action { display: none; }
-  .burger { position: relative; z-index: 95; }
-
   .duo { grid-template-columns: 1fr; }
   .pied__grille { grid-template-columns: 1fr 1fr; }
   .bande-photo { grid-template-columns: repeat(2, 1fr); }
@@ -671,14 +690,16 @@ p { margin: 0 0 1em; }
 
 @media (max-width: 620px) {
   .bec {
-    grid-template-columns: 44px 1fr;
-    row-gap: 4px;
-    padding-block: 16px;
+    grid-template-columns: 56px 1fr;
+    row-gap: 2px;
+    padding-right: 16px;
+    padding-block: 12px 14px;
   }
-  .bec__numero { font-size: 22px; }
-  .bec__style { grid-column: 2; }
-  .bec__degre { grid-column: 2; font-size: 18px; }
-  .hero__bandeau { gap: 10px 24px; font-size: 10px; }
+  .bec__numero { font-size: 22px; padding-block: 0; }
+  .bec__style,
+  .bec__degre { grid-column: 2; }
+  .bec__degre { font-size: 19px; }
+  .hero__bandeau > * { font-size: 10px; padding: 9px 13px; }
   .pied__grille { grid-template-columns: 1fr; }
 }
 
@@ -696,4 +717,151 @@ p { margin: 0 0 1em; }
   }
   .apparait { opacity: 1; transform: none; }
   .ticker__piste { animation: none; }
+}
+
+/* ==========================================================================
+   17. LA CARTE
+   Une carte de bar se lit debout, dans la pénombre, avec un verre en main.
+   Donc : navigation collante par famille, colonnes courtes, gros noms.
+   ========================================================================== */
+
+/* Barre de familles : une rangée de plaques, collée sous l'en-tête */
+.familles {
+  position: sticky;
+  top: 74px;
+  z-index: 60;
+  padding-block: 14px;
+  background: var(--nuit);
+  box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.8);
+}
+.familles__piste {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 2px;
+}
+.familles__piste::-webkit-scrollbar { display: none; }
+
+.familles a {
+  flex-shrink: 0;
+  padding: 11px 18px;
+  background: var(--nuit-bloc);
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--craie-doux);
+  white-space: nowrap;
+  transition: background var(--transition), color var(--transition);
+}
+.familles a:hover,
+.familles a.est-active {
+  background: var(--sauge);
+  color: var(--nuit);
+}
+
+/* Famille de carte */
+.famille { padding-block: clamp(48px, 7vh, 84px); scroll-margin-top: 140px; }
+.famille--sombre { background: var(--nuit-haut); }
+
+.famille__entete {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin-bottom: 32px;
+}
+.famille__entete h2 { font-size: clamp(34px, 5.6vw, 62px); }
+.famille__compte {
+  font-family: var(--enseigne);
+  font-size: 26px;
+  color: var(--sauge-fonce);
+}
+
+/* Colonnes : la carte se lit en colonnes courtes, pas en liste interminable */
+.colonnes {
+  columns: 3 220px;
+  column-gap: 32px;
+}
+.colonnes--large { columns: 2 300px; }
+
+/* Une ligne de carte. Le fond alterné remplace le trait pointillé habituel. */
+.ligne {
+  break-inside: avoid;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 14px;
+  border-radius: 7px;
+  margin-bottom: 3px;
+  transition: background var(--transition), color var(--transition);
+}
+.ligne:hover { background: var(--sauge); color: var(--nuit); }
+
+.ligne__nom {
+  font-family: var(--enseigne);
+  font-size: 25px;
+  line-height: 1.06;
+}
+.ligne__detail {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--sauge);
+  white-space: nowrap;
+}
+.ligne:hover .ligne__detail { color: rgba(17, 20, 14, 0.72); }
+
+/* Sous-famille : un intertitre à l'intérieur d'une colonne */
+.sous-famille {
+  break-inside: avoid;
+  break-after: avoid;
+  display: inline-block;
+  margin: 22px 0 10px;
+  padding: 6px 12px 5px;
+  background: var(--sauge-fonce);
+  color: var(--nuit);
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.colonnes > .sous-famille:first-child { margin-top: 0; }
+
+/* Signature de la page carte : la ligne mise en avant */
+.ligne--maison {
+  background: rgba(217, 155, 52, 0.13);
+  box-shadow: inset 0 0 0 var(--keyline) rgba(217, 155, 52, 0.42);
+}
+.ligne--maison .ligne__detail { color: var(--ambre); }
+.ligne--maison:hover { background: var(--ambre); }
+.ligne--maison:hover .ligne__detail { color: rgba(17, 20, 14, 0.72); }
+
+/* Encart de bas de page carte */
+.encart {
+  padding: 26px 28px;
+  background: var(--nuit-bloc);
+  border-radius: var(--rayon);
+  font-size: 15px;
+  color: var(--craie-doux);
+}
+.encart strong { color: var(--sauge); }
+
+@media (max-width: 900px) {
+  .familles { top: 66px; }
+  .colonnes { columns: 2 180px; column-gap: 24px; }
+}
+@media (max-width: 620px) {
+  .colonnes,
+  .colonnes--large { columns: 1; }
+  .ligne__nom { font-size: 22px; }
 }

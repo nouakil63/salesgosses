@@ -35,12 +35,27 @@ sur le fichier fourni.
 | Jeton | Valeur | Usage |
 |---|---|---|
 | `--nuit` | `#11140E` | Fond général. Un noir olive, jamais du noir pur. |
-| `--nuit-haut` | `#191D14` | Sections en léger relief |
-| `--nuit-carte` | `#1F2418` | Cartes et blocs |
+| `--nuit-haut` | `#1B2016` | Sections en léger relief |
+| `--nuit-bloc` | `#232A1C` | Plaques et bandes |
 | `--sauge` | `#9AA279` | **Couleur du logo.** Accent principal, titres secondaires |
+| `--sauge-fonce` | `#7B8460` | Blocs de numéro, liserés |
 | `--sauge-clair` | `#C3CBA4` | Détails, degrés d'alcool |
 | `--craie` | `#F4F3EC` | Texte principal |
 | `--ambre` | `#D99B34` | Accent unique : la pression. Pastille « ouvert », survol des becs. À garder rare. |
+
+### Direction : la plaque émaillée
+
+Le logo est du blanc sur un aplat vert plein : c'est le vocabulaire des plaques
+émaillées de bistrot. Le site en applique les règles, et elles sont strictes :
+
+- **aucun filet à 1px.** Les sections se séparent par un changement d'aplat, les
+  listes par une alternance de bandes, jamais par un trait.
+- **keyline épaisse en retrait du bord** (`--keyline: 3px`, en `box-shadow: inset`)
+  pour les plaques et les cadres, comme le liseré d'une vraie plaque émaillée.
+- **inversion sauge.** Au moins un bloc par page passe en fond vert plein avec
+  encre sombre. C'est le point de bascule visuel de la page.
+- les étiquettes de section sont des **petites plaques pleines**, pas un mot en
+  majuscules suivi d'un trait.
 
 **Typographies** (Google Fonts, chargées par CDN)
 
@@ -60,6 +75,11 @@ La numérotation `01 → 11` n'est pas décorative : elle correspond aux tireuse
 réelles du bar. C'est le point de différenciation du lieu (onze becs tournants,
 c'est rare en Normandie), donc c'est ce que la page raconte en premier.
 
+**Neuf becs, pas onze.** La communication publique du bar annonce onze becs
+tournants ; la caisse n'en liste que neuf en 25/50 cl. Le site affiche neuf.
+À trancher avec le gérant : soit deux becs manquent à la liste, soit le chiffre
+communiqué est faux.
+
 **Mise à jour à chaque rotation de fût** : ouvrir `index.html`, chercher
 `<!-- SIGNATURE`, et modifier les blocs `.bec`. Trois champs par bec :
 
@@ -68,13 +88,51 @@ c'est rare en Normandie), donc c'est ce que la page raconte en premier.
   <span class="bec__numero">01</span>
   <span class="bec__nom">La Chouffe</span>
   <span class="bec__style">Blonde belge</span>
-  <span class="bec__degre">8,0°</span>
+  <span class="bec__degre">25 / 50 cl</span>
 </div>
 ```
 
-> Les bières listées actuellement sont reprises de la communication publique du
-> bar. **À faire valider par le gérant avant mise en ligne** — la carte a pu
-> changer.
+---
+
+## La carte
+
+`carte.html` contient **129 entrées** réparties en neuf familles, saisies depuis
+les écrans de la caisse du bar. Une barre de navigation collante permet de sauter
+d'une famille à l'autre, et la famille en cours de lecture est surlignée.
+
+**Aucun prix n'est affiché.** Ils n'ont pas été fournis. Deux options : les
+ajouter dans le `<span class="ligne__detail">` de chaque ligne, ou assumer une
+carte sans prix (courant pour un bar, mais discutable côté client).
+
+Les créations maison (`Mojito Sales Gosses`, `Sales Gosses`, `Planche mixte`)
+portent la classe `ligne--maison` et sont surlignées en ambre.
+
+### Corrections d'orthographe appliquées
+
+Les intitulés de caisse ont été corrigés pour l'affichage public. Si le gérant
+préfère l'orthographe de la caisse, il faut les remettre :
+
+| Caisse | Site |
+|---|---|
+| Chardonay | Chardonnay |
+| Cote de bergerac / Gascongne | Côtes de Bergerac / Gascogne |
+| Les Falendiere | Les Falendières |
+| Planche Frommage | Planche fromage |
+| Camambert Fondu | Camembert fondu |
+| Guacamol | Guacamole |
+| annanas / cramberry | ananas / cranberry |
+| Jack Daniel's Strawsberry | Jack Daniel's Strawberry |
+| Havana Espécial | Havana Especial |
+| Zubrowka | Żubrówka |
+
+### Points à faire valider
+
+- **« Sécha da Silva »** (rhum) n'a pas été repris : l'intitulé ne correspond à
+  aucune marque identifiable. À vérifier auprès du bar.
+- Les mentions **« Bordeaux »**, **« Art de Vivre »** et **« Les Falendières »**
+  en rosé : appellations ou noms de cuvées ? Le classement peut être faux.
+- **Happy hour** : mentionné sur la caisse, horaires inconnus. L'encart en bas de
+  la carte reste volontairement vague.
 
 ---
 

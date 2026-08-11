@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>La carte — Sales Gosses, Deauville</title>
-  <meta name="description" content="Bières pression et bouteilles, cocktails maison, vins au verre et planches à partager. La carte du bar Sales Gosses à Deauville.">
+  <meta name="description" content="Neuf becs pression, 26 cocktails, whiskies, rhums, gins, vins au verre et planches à partager. La carte du bar Sales Gosses à Deauville.">
   <meta name="theme-color" content="#11140E">
   <link rel="icon" href="assets/img/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +17,7 @@
   <a class="saut-contenu" href="#contenu">Aller au contenu</a>
 
   <header class="entete est-collee">
-    <a class="entete__logo" href="index.html" aria-label="Sales Gosses, retour a l'accueil">
+    <a class="entete__logo" href="index.html" aria-label="Sales Gosses, retour à l'accueil">
       <img src="assets/img/logo.png" alt="Logo Sales Gosses" width="52" height="52">
     </a>
     <nav class="nav" id="nav" aria-label="Navigation principale">
@@ -33,51 +33,327 @@
   </header>
 
   <main id="contenu">
+
     <section class="banniere">
       <div class="contenant">
-        <p class="surtitre">La carte</p>
+        <span class="etiquette">La carte</span>
         <h1>Tout ce<br>qui se boit</h1>
-        <p class="chapo">Le détail arrive : bières, cocktails, vins et planches. En attendant, voici la structure de la page. Envoyez les intitulés et les prix, on remplit.</p>
+        <p class="chapo">
+          Neuf becs pression qui tournent au fil des fûts, vingt-six cocktails,
+          les whiskies et les rhums qu'il faut, et de quoi tenir jusqu'à la
+          fermeture.
+        </p>
+      </div>
+    </section>
+
+    <!-- Navigation par famille : reste visible pendant tout le défilement -->
+    <nav class="familles" aria-label="Familles de la carte">
+      <div class="contenant familles__piste">
+        <a href="#bieres">Bières</a>
+        <a href="#cocktails">Cocktails</a>
+        <a href="#sans-alcool">Sans alcool</a>
+        <a href="#spiritueux">Spiritueux</a>
+        <a href="#aperitifs">Apéritifs</a>
+        <a href="#vins">Vins</a>
+        <a href="#digestifs">Digestifs</a>
+        <a href="#tapas">À grignoter</a>
+        <a href="#softs">Softs</a>
+      </div>
+    </nav>
+
+    <section class="famille" id="bieres">
+      <div class="contenant">
+        <div class="famille__entete apparait">
+          <div>
+            <span class="etiquette">Pression &amp; bouteilles</span>
+            <h2>Bières</h2>
+          </div>
+          <span class="famille__compte">09 becs</span>
+        </div>
+        <div class="colonnes apparait">
+          <span class="sous-famille">Les becs pression</span>
+          <div class="ligne"><span class="ligne__nom">Bud</span><span class="ligne__detail">25 / 50 cl</span></div>
+          <div class="ligne"><span class="ligne__nom">Jack's IPA</span><span class="ligne__detail">25 / 50 cl</span></div>
+          <div class="ligne"><span class="ligne__nom">NEIPA Jamaican</span><span class="ligne__detail">25 / 50 cl</span></div>
+          <div class="ligne"><span class="ligne__nom">La Chouffe</span><span class="ligne__detail">25 / 50 cl</span></div>
+          <div class="ligne"><span class="ligne__nom">Blanche de Namur</span><span class="ligne__detail">25 / 50 cl</span></div>
+          <div class="ligne"><span class="ligne__nom">Cuvée des Trolls</span><span class="ligne__detail">25 / 50 cl</span></div>
+          <div class="ligne"><span class="ligne__nom">Kasteel Red</span><span class="ligne__detail">25 / 50 cl</span></div>
+          <div class="ligne"><span class="ligne__nom">Triple Kannunik</span><span class="ligne__detail">25 / 50 cl</span></div>
+          <div class="ligne"><span class="ligne__nom">Paix Dieu</span><span class="ligne__detail">25 / 50 cl</span></div>
+          <span class="sous-famille">En bouteille</span>
+          <div class="ligne"><span class="ligne__nom">Corona</span></div>
+          <div class="ligne"><span class="ligne__nom">Desperados</span></div>
+          <span class="sous-famille">Bière &amp; sirop</span>
+          <div class="ligne"><span class="ligne__nom">Picon bière</span><span class="ligne__detail">25 / 50 cl</span></div>
+          <div class="ligne"><span class="ligne__nom">Monaco</span><span class="ligne__detail">25 / 50 cl</span></div>
+          <div class="ligne"><span class="ligne__nom">Panaché</span><span class="ligne__detail">25 / 50 cl</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="famille famille--sombre" id="cocktails">
+      <div class="contenant">
+        <div class="famille__entete apparait">
+          <div>
+            <span class="etiquette">Classiques, mules et créations du bar</span>
+            <h2>Cocktails</h2>
+          </div>
+          <span class="famille__compte">26 recettes</span>
+        </div>
+        <div class="colonnes apparait">
+          <span class="sous-famille">Les maison</span>
+          <div class="ligne ligne--maison"><span class="ligne__nom">Mojito Sales Gosses</span><span class="ligne__detail">Maison</span></div>
+          <div class="ligne ligne--maison"><span class="ligne__nom">Sales Gosses</span><span class="ligne__detail">Maison</span></div>
+          <span class="sous-famille">Les classiques</span>
+          <div class="ligne"><span class="ligne__nom">Mojito</span></div>
+          <div class="ligne"><span class="ligne__nom">Mojito fruits</span></div>
+          <div class="ligne"><span class="ligne__nom">Cuba libre</span></div>
+          <div class="ligne"><span class="ligne__nom">Caïpirinha</span></div>
+          <div class="ligne"><span class="ligne__nom">Caïpiroska</span></div>
+          <div class="ligne"><span class="ligne__nom">Mai Tai</span></div>
+          <div class="ligne"><span class="ligne__nom">Sex on the Beach</span></div>
+          <div class="ligne"><span class="ligne__nom">Piña Colada</span></div>
+          <div class="ligne"><span class="ligne__nom">Tequila Sunrise</span></div>
+          <div class="ligne"><span class="ligne__nom">Spritz</span></div>
+          <div class="ligne"><span class="ligne__nom">Ti Punch</span></div>
+          <div class="ligne"><span class="ligne__nom">Long Island</span></div>
+          <div class="ligne"><span class="ligne__nom">Cosmopolitan</span></div>
+          <div class="ligne"><span class="ligne__nom">Margarita</span></div>
+          <div class="ligne"><span class="ligne__nom">Daiquiri</span></div>
+          <div class="ligne"><span class="ligne__nom">Zombie</span></div>
+          <span class="sous-famille">Les mules</span>
+          <div class="ligne"><span class="ligne__nom">Moscow Mule</span></div>
+          <div class="ligne"><span class="ligne__nom">London Mule</span></div>
+          <div class="ligne"><span class="ligne__nom">Jamaican Mule</span></div>
+          <span class="sous-famille">Les autres</span>
+          <div class="ligne"><span class="ligne__nom">Porn Star Martini</span></div>
+          <div class="ligne"><span class="ligne__nom">Desperito</span></div>
+          <div class="ligne"><span class="ligne__nom">Beach Bikini</span></div>
+          <div class="ligne"><span class="ligne__nom">St Germain</span></div>
+          <div class="ligne"><span class="ligne__nom">Jack Apple Tonic</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="famille" id="sans-alcool">
+      <div class="contenant">
+        <div class="famille__entete apparait">
+          <div>
+            <span class="etiquette">Les mêmes gestes, sans le degré</span>
+            <h2>Sans alcool</h2>
+          </div>
+          <span class="famille__compte">05 recettes</span>
+        </div>
+        <div class="colonnes apparait">
+          <div class="ligne"><span class="ligne__nom">Virgin Mojito</span></div>
+          <div class="ligne"><span class="ligne__nom">Virgin Colada</span></div>
+          <div class="ligne"><span class="ligne__nom">Chantaco</span></div>
+          <div class="ligne"><span class="ligne__nom">Royal Blue</span></div>
+          <div class="ligne"><span class="ligne__nom">Passion tropicale</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="famille famille--sombre" id="spiritueux">
+      <div class="contenant">
+        <div class="famille__entete apparait">
+          <div>
+            <span class="etiquette">Whiskies, rhums, gins et le reste</span>
+            <h2>Spiritueux</h2>
+          </div>
+          <span class="famille__compte">27 références</span>
+        </div>
+        <div class="colonnes apparait">
+          <span class="sous-famille">Whisky</span>
+          <div class="ligne"><span class="ligne__nom">Grant's</span></div>
+          <div class="ligne"><span class="ligne__nom">Jack Daniel's</span></div>
+          <div class="ligne"><span class="ligne__nom">Jack Daniel's Honey</span></div>
+          <div class="ligne"><span class="ligne__nom">Jack Daniel's Fire</span></div>
+          <div class="ligne"><span class="ligne__nom">Jack Daniel's Apple</span></div>
+          <div class="ligne"><span class="ligne__nom">Jack Daniel's Strawberry</span></div>
+          <div class="ligne"><span class="ligne__nom">Monkey Shoulder</span></div>
+          <div class="ligne"><span class="ligne__nom">Glenfiddich 12 ans</span></div>
+          <div class="ligne"><span class="ligne__nom">Chivas 12 ans</span></div>
+          <div class="ligne"><span class="ligne__nom">Talisker</span></div>
+          <div class="ligne"><span class="ligne__nom">Oban 14 ans</span></div>
+          <div class="ligne"><span class="ligne__nom">Woodford Reserve</span></div>
+          <div class="ligne"><span class="ligne__nom">Jim Beam</span></div>
+          <div class="ligne"><span class="ligne__nom">Pointe Blanche</span></div>
+          <div class="ligne"><span class="ligne__nom">Nikka</span></div>
+          <span class="sous-famille">Rhum</span>
+          <div class="ligne"><span class="ligne__nom">Sailor Jerry</span></div>
+          <div class="ligne"><span class="ligne__nom">Havana Especial</span></div>
+          <div class="ligne"><span class="ligne__nom">Havana 7 ans</span></div>
+          <div class="ligne"><span class="ligne__nom">Diplomático</span></div>
+          <div class="ligne"><span class="ligne__nom">Don Papa</span></div>
+          <div class="ligne"><span class="ligne__nom">Kraken</span></div>
+          <span class="sous-famille">Gin</span>
+          <div class="ligne"><span class="ligne__nom">Beefeater</span><span class="ligne__detail">Verre / bouteille</span></div>
+          <div class="ligne"><span class="ligne__nom">Hendrick's</span><span class="ligne__detail">Verre / bouteille</span></div>
+          <div class="ligne"><span class="ligne__nom">Tanqueray London Dry</span><span class="ligne__detail">Verre / bouteille</span></div>
+          <span class="sous-famille">Vodka</span>
+          <div class="ligne"><span class="ligne__nom">Vodka</span></div>
+          <div class="ligne"><span class="ligne__nom">Żubrówka</span><span class="ligne__detail">Verre / bouteille</span></div>
+          <span class="sous-famille">Tequila</span>
+          <div class="ligne"><span class="ligne__nom">Pistolero</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="famille" id="aperitifs">
+      <div class="contenant">
+        <div class="famille__entete apparait">
+          <div>
+            <span class="etiquette">Ce qu'on boit avant, et souvent pendant</span>
+            <h2>Apéritifs</h2>
+          </div>
+          <span class="famille__compte">16 références</span>
+        </div>
+        <div class="colonnes apparait">
+          <span class="sous-famille">Anisés</span>
+          <div class="ligne"><span class="ligne__nom">Ricard</span></div>
+          <div class="ligne"><span class="ligne__nom">Double Ricard</span></div>
+          <div class="ligne"><span class="ligne__nom">Moresque</span></div>
+          <div class="ligne"><span class="ligne__nom">Double Moresque</span></div>
+          <div class="ligne"><span class="ligne__nom">Perroquet</span></div>
+          <div class="ligne"><span class="ligne__nom">Double Perroquet</span></div>
+          <div class="ligne"><span class="ligne__nom">Perroquet sauvage</span></div>
+          <div class="ligne"><span class="ligne__nom">Tomate</span></div>
+          <div class="ligne"><span class="ligne__nom">Double Tomate</span></div>
+          <span class="sous-famille">Les autres</span>
+          <div class="ligne"><span class="ligne__nom">Kir</span></div>
+          <div class="ligne"><span class="ligne__nom">Kir royal</span></div>
+          <div class="ligne"><span class="ligne__nom">Martini</span></div>
+          <div class="ligne"><span class="ligne__nom">Campari</span></div>
+          <div class="ligne"><span class="ligne__nom">Negroni</span></div>
+          <div class="ligne"><span class="ligne__nom">Americano</span></div>
+          <div class="ligne"><span class="ligne__nom">Porto</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="famille famille--sombre" id="vins">
+      <div class="contenant">
+        <div class="famille__entete apparait">
+          <div>
+            <span class="etiquette">Au verre comme à la bouteille</span>
+            <h2>Vins</h2>
+          </div>
+          <span class="famille__compte">07 références</span>
+        </div>
+        <div class="colonnes colonnes--large apparait">
+          <span class="sous-famille">Blanc sec</span>
+          <div class="ligne"><span class="ligne__nom">Chardonnay</span><span class="ligne__detail">Verre / bouteille</span></div>
+          <div class="ligne"><span class="ligne__nom">Sauvignon</span><span class="ligne__detail">Verre / bouteille</span></div>
+          <span class="sous-famille">Blanc moelleux</span>
+          <div class="ligne"><span class="ligne__nom">Côtes de Bergerac</span><span class="ligne__detail">Verre / bouteille</span></div>
+          <div class="ligne"><span class="ligne__nom">Côtes de Gascogne</span><span class="ligne__detail">Verre / bouteille</span></div>
+          <span class="sous-famille">Rosé</span>
+          <div class="ligne"><span class="ligne__nom">Bordeaux</span><span class="ligne__detail">Verre / bouteille</span></div>
+          <div class="ligne"><span class="ligne__nom">Art de Vivre</span><span class="ligne__detail">Verre / bouteille</span></div>
+          <div class="ligne"><span class="ligne__nom">Les Falendières</span><span class="ligne__detail">Verre / bouteille</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="famille" id="digestifs">
+      <div class="contenant">
+        <div class="famille__entete apparait">
+          <div>
+            <span class="etiquette">Liqueurs et shooters, pour la fin</span>
+            <h2>Digestifs</h2>
+          </div>
+          <span class="famille__compte">11 références</span>
+        </div>
+        <div class="colonnes apparait">
+          <span class="sous-famille">Liqueurs</span>
+          <div class="ligne"><span class="ligne__nom">Baileys</span></div>
+          <div class="ligne"><span class="ligne__nom">Cointreau</span></div>
+          <div class="ligne"><span class="ligne__nom">Malibu</span></div>
+          <div class="ligne"><span class="ligne__nom">Get 27</span></div>
+          <div class="ligne"><span class="ligne__nom">Get 31</span></div>
+          <div class="ligne"><span class="ligne__nom">Manzana</span></div>
+          <div class="ligne"><span class="ligne__nom">Limoncello</span></div>
+          <div class="ligne"><span class="ligne__nom">Kiss Cool</span></div>
+          <span class="sous-famille">Shooters</span>
+          <div class="ligne"><span class="ligne__nom">Jäger Bomb</span></div>
+          <div class="ligne"><span class="ligne__nom">Fire Bomb</span></div>
+          <div class="ligne"><span class="ligne__nom">Bouteille shooter</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="famille famille--sombre" id="tapas">
+      <div class="contenant">
+        <div class="famille__entete apparait">
+          <div>
+            <span class="etiquette">Planches à partager et petites assiettes</span>
+            <h2>À grignoter</h2>
+          </div>
+          <span class="famille__compte">09 plats</span>
+        </div>
+        <div class="colonnes colonnes--large apparait">
+          <span class="sous-famille">Les planches</span>
+          <div class="ligne"><span class="ligne__nom">Planche fromage</span><span class="ligne__detail">À partager</span></div>
+          <div class="ligne"><span class="ligne__nom">Planche charcuterie</span><span class="ligne__detail">À partager</span></div>
+          <div class="ligne ligne--maison"><span class="ligne__nom">Planche mixte</span><span class="ligne__detail">À partager</span></div>
+          <span class="sous-famille">À grignoter</span>
+          <div class="ligne"><span class="ligne__nom">Camembert fondu</span></div>
+          <div class="ligne"><span class="ligne__nom">Sticks de poulet</span></div>
+          <div class="ligne"><span class="ligne__nom">Sticks de mozzarella</span></div>
+          <div class="ligne"><span class="ligne__nom">Guacamole</span></div>
+          <span class="sous-famille">Plus consistant</span>
+          <div class="ligne"><span class="ligne__nom">Croque-monsieur</span></div>
+          <div class="ligne"><span class="ligne__nom">Chicken burger</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="famille" id="softs">
+      <div class="contenant">
+        <div class="famille__entete apparait">
+          <div>
+            <span class="etiquette">Pour ceux qui conduisent</span>
+            <h2>Softs</h2>
+          </div>
+          <span class="famille__compte">14 références</span>
+        </div>
+        <div class="colonnes apparait">
+          <span class="sous-famille">Sodas</span>
+          <div class="ligne"><span class="ligne__nom">Coca-Cola</span></div>
+          <div class="ligne"><span class="ligne__nom">Coca-Cola zéro</span></div>
+          <div class="ligne"><span class="ligne__nom">Ice tea</span></div>
+          <div class="ligne"><span class="ligne__nom">Limonade</span></div>
+          <div class="ligne"><span class="ligne__nom">Ginger beer</span></div>
+          <div class="ligne"><span class="ligne__nom">Tonic</span></div>
+          <div class="ligne"><span class="ligne__nom">Perrier</span></div>
+          <span class="sous-famille">Jus de fruits</span>
+          <div class="ligne"><span class="ligne__nom">Orange</span></div>
+          <div class="ligne"><span class="ligne__nom">Pomme</span></div>
+          <div class="ligne"><span class="ligne__nom">Ananas</span></div>
+          <div class="ligne"><span class="ligne__nom">Cranberry</span></div>
+          <span class="sous-famille">Les autres</span>
+          <div class="ligne"><span class="ligne__nom">Red Bull</span></div>
+          <div class="ligne"><span class="ligne__nom">Diabolo</span></div>
+          <div class="ligne"><span class="ligne__nom">Sirop à l'eau</span></div>
+        </div>
       </div>
     </section>
 
     <section class="section">
       <div class="contenant">
-        <div class="grille-cartes">
-          <article class="carte apparait">
-            <span class="carte__compte">01</span>
-            <h3>Les pressions</h3>
-            <p>Les onze becs tournants, avec le style et le degré. Repris du mur des becs de l'accueil.</p>
-          </article>
-          <article class="carte apparait">
-            <span class="carte__compte">02</span>
-            <h3>Les bouteilles</h3>
-            <p>Plus de cent références, classées par pays d'origine.</p>
-          </article>
-          <article class="carte apparait">
-            <span class="carte__compte">03</span>
-            <h3>Les cocktails</h3>
-            <p>Classiques, créations maison et sangria.</p>
-          </article>
-          <article class="carte apparait">
-            <span class="carte__compte">04</span>
-            <h3>Les vins</h3>
-            <p>Au verre et à la bouteille, sélection courte.</p>
-          </article>
-          <article class="carte apparait">
-            <span class="carte__compte">05</span>
-            <h3>Sans alcool</h3>
-            <p>Softs, bières sans alcool et cocktails sans alcool.</p>
-          </article>
-          <article class="carte apparait">
-            <span class="carte__compte">06</span>
-            <h3>À grignoter</h3>
-            <p>Planches à partager, croques, accras, petites assiettes.</p>
-          </article>
+        <div class="encart apparait">
+          <p style="margin-bottom:12px">
+            <strong>Happy hour</strong> tous les soirs en début de service.
+            Demandez au bar, les horaires bougent selon la saison.
+          </p>
+          <p style="margin-bottom:0">
+            Les becs pression tournent au fil des arrivages : la liste ci-dessus
+            est celle du moment. Pour savoir ce qui coule ce soir,
+            <a href="tel:+33642418167" class="accent">06 42 41 81 67</a>.
+          </p>
         </div>
-        <p style="margin-top:40px" class="apparait">
-          <a class="bouton bouton--fantome" href="contact.html">Une question sur la carte</a>
-        </p>
       </div>
     </section>
 
@@ -87,8 +363,8 @@
     <div class="contenant">
       <div class="pied__grille">
         <div>
-          <img class="pied__logo" src="assets/img/logo.png" alt="Sales Gosses" width="74" height="74">
-          <p style="font-size:15px;color:var(--craie-doux);max-width:32ch">
+          <img class="pied__logo" src="assets/img/logo.png" alt="Sales Gosses" width="76" height="76">
+          <p style="font-size:15px;color:var(--craie-doux);max-width:30ch">
             Bar à bières, cocktails &amp; tapas.<br>Détente, cool &amp; relax, depuis 2019.
           </p>
         </div>
@@ -128,5 +404,6 @@
 
   <script src="assets/js/main.js"></script>
   <script>document.getElementById('annee').textContent = new Date().getFullYear();</script>
+
 </body>
 </html>
