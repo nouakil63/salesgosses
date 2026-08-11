@@ -12,8 +12,9 @@ aucun framework. On ouvre `index.html` et ça marche.
 
 ```
 salesgosses/
-├── index.html            Accueil (vidéo hero + mur des 11 becs)
+├── index.html            Accueil (moments de la nuit + mur des becs)
 ├── carte.html            La carte
+├── soirees.html          Soirées — direction visuelle séparée
 ├── groupes.html          Groupes & privatisation
 ├── contact.html          Contact & accès
 ├── assets/
@@ -91,6 +92,52 @@ communiqué est faux.
   <span class="bec__degre">25 / 50 cl</span>
 </div>
 ```
+
+---
+
+## La page Soirées : une direction à part
+
+`soirees.html` est volontairement en rupture avec le reste du site. Là où les
+autres pages sont sombres et émaillées, celle-ci est **une affiche imprimée** :
+fond papier, encre noire, vert en seconde encre, rouge pour les tampons.
+
+| | Le reste du site | La page Soirées |
+|---|---|---|
+| Fond | `#11140E` noir olive | `#EFEADC` papier |
+| Titres | Big Shoulders Display, condensée | **Archivo Black**, grotesque grasse |
+| Texte | Instrument Sans | **Space Mono**, monospace |
+| Angles | arrondis 8–12px | angles vifs |
+| Séparations | aplats et bandes | filets épais de 2px |
+| Accent | vert sauge | vert olive + rouge brique |
+
+Deux effets propres à cette page : un grain de papier en trame fine appliqué en
+`position: fixed`, et un décalage d'impression sur le titre — la deuxième ligne
+glisse vers la droite et change d'encre, la troisième est en contour creux.
+
+Tout est enfermé sous la classe `.affiche` posée sur le `<body>`, donc aucune
+règle ne peut contaminer les autres pages.
+
+### La programmation est à remplacer
+
+**Seul le happy hour est confirmé** (il figure sur la caisse du bar). Les quatre
+autres soirées — jeudi, vendredi, samedi, dimanche — sont des exemples de
+structure, marqués d'un tampon « À confirmer » directement visible sur la page.
+
+Ne pas publier en l'état. Soit le gérant fournit la vraie programmation, soit
+ces blocs sont supprimés et la page se limite au happy hour et à la
+privatisation.
+
+---
+
+## Le menu déroulant
+
+La navigation regroupe **Soirées** et **Groupes** sous une entrée « Le bar ».
+Le menu s'ouvre au clic, se ferme au clic extérieur, à la touche Échap et au
+départ du focus. Sur mobile, le tiroir se déplie dans le flux au lieu de se
+superposer.
+
+Il est répété dans les cinq pages : toute modification de la navigation demande
+cinq remplacements.
 
 ---
 

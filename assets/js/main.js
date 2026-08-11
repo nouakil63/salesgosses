@@ -51,7 +51,63 @@
   }
 
   /* ------------------------------------------------------------------
-     3. Apparition des blocs au défilement
+     3. Menu déroulant « Le bar »
+     Ouverture au clic, fermeture au clic extérieur, à Échap, et au
+     départ du focus. Sur mobile, le tiroir se déplie dans le flux.
+     ------------------------------------------------------------------ */
+  var groupes = document.querySelectorAll('[data-groupe]');
+
+  function fermerGroupes(sauf) {
+    groupes.forEach(function (g) {
+      if (g === sauf) return;
+      g.dataset.ouvert = 'false';
+      var b = g.querySelector('.nav__bouton');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  groupes.forEach(function (groupe) {
+    var bouton = groupe.querySelector('.nav__bouton');
+    if (!bouton) return;
+
+    groupe.dataset.ouvert = 'false';
+
+    bouton.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var ouvert = groupe.dataset.ouvert === 'true';
+      fermerGroupes(groupe);
+      groupe.dataset.ouvert = String(!ouvert);
+      bouton.setAttribute('aria-expanded', String(!ouvert));
+    });
+
+    // Le focus quitte le groupe : on referme
+    groupe.addEventListener('focusout', function (e) {
+      if (!groupe.contains(e.relatedTarget)) {
+        groupe.dataset.ouvert = 'false';
+        bouton.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  if (groupes.length) {
+    document.addEventListener('click', function () {
+      fermerGroupes(null);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+
+      var ouvert = document.querySelector('[data-groupe][data-ouvert="true"]');
+      if (!ouvert) return;
+
+      fermerGroupes(null);
+      var b = ouvert.querySelector('.nav__bouton');
+      if (b) b.focus();
+    });
+  }
+
+  /* ------------------------------------------------------------------
+     4. Apparition des blocs au défilement
      ------------------------------------------------------------------ */
   var aReveler = document.querySelectorAll('.apparait');
 
@@ -78,7 +134,7 @@
   }
 
   /* ------------------------------------------------------------------
-     4. Pastille « ouvert / fermé »
+     5. Pastille « ouvert / fermé »
      Horaires : tous les jours, 17h → 1h du matin.
      À ajuster ici si les horaires d'été diffèrent.
      ------------------------------------------------------------------ */
@@ -104,7 +160,7 @@
   setInterval(majPastilles, 60000);
 
   /* ------------------------------------------------------------------
-     5. Page carte : surligne la famille en cours de lecture
+     6. Page carte : surligne la famille en cours de lecture
      ------------------------------------------------------------------ */
   var liensFamilles = document.querySelectorAll('.familles a');
 
@@ -132,7 +188,7 @@
   }
 
   /* ------------------------------------------------------------------
-     6. Les vidéos des moments de la nuit
+     7. Les vidéos des moments de la nuit
      Trois vidéos qui tournent en même temps, ça chauffe un téléphone.
      On ne charge et ne lit que celles qui sont visibles à l'écran.
      ------------------------------------------------------------------ */

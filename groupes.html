@@ -23,7 +23,16 @@
     <nav class="nav" id="nav" aria-label="Navigation principale">
       <a href="index.html">Accueil</a>
       <a href="carte.html">La carte</a>
-      <a href="groupes.html" aria-current="page">Groupes</a>
+      <div class="nav__groupe nav__groupe--actif" data-groupe>
+        <button class="nav__bouton" type="button" aria-expanded="false" aria-controls="tiroir-bar">
+          Le bar
+          <svg viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <ul class="nav__tiroir" id="tiroir-bar">
+          <li><a href="soirees.html">Soirées</a></li>
+          <li><a href="groupes.html" aria-current="page">Groupes</a></li>
+        </ul>
+      </div>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="entete__action"><a class="bouton" href="tel:+33642418167">Réserver</a></div>
@@ -102,6 +111,7 @@
           <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="carte.html">La carte</a></li>
+            <li><a href="soirees.html">Soirées</a></li>
             <li><a href="groupes.html">Groupes</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>

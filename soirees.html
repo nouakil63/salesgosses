@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Soirées — Sales Gosses, Deauville</title>
+  <meta name="description" content="Happy hour tous les soirs, soirées à thème et privatisations au Sales Gosses, 21 rue Breney à Deauville. Ouvert de 17h à 1h, sept soirs sur sept.">
+  <meta name="theme-color" content="#EFEADC">
+
+  <link rel="icon" href="assets/img/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Typographies propres à cette page : grotesque grasse + monospace -->
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Big+Shoulders+Display:wght@400;800&family=Instrument+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="affiche">
+
+  <a class="saut-contenu" href="#contenu">Aller au contenu</a>
+
+  <header class="entete est-collee">
+    <a class="entete__logo" href="index.html" aria-label="Sales Gosses, retour à l'accueil">
+      <img src="assets/img/logo.png" alt="Logo Sales Gosses" width="54" height="54">
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="carte.html">La carte</a>
+
+      <div class="nav__groupe nav__groupe--actif" data-groupe>
+        <button class="nav__bouton" type="button" aria-expanded="false" aria-controls="tiroir-bar">
+          Le bar
+          <svg viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <ul class="nav__tiroir" id="tiroir-bar">
+          <li><a href="soirees.html" aria-current="page">Soirées</a></li>
+          <li><a href="groupes.html">Groupes</a></li>
+        </ul>
+      </div>
+
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="entete__action">
+      <a class="bouton" href="tel:+33642418167">Réserver</a>
+    </div>
+
+    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ==================================================================
+         Le placard — le grand titre imprimé
+         ================================================================== -->
+    <section class="placard">
+      <div class="contenant">
+
+        <p class="placard__date">
+          <span>Sales Gosses</span>
+          <span>21 rue Breney, Deauville</span>
+          <span>17h → 1h, 7 soirs / 7</span>
+        </p>
+
+        <h1>
+          <span>Ce qui</span>
+          <span class="glisse">se passe</span>
+          <span class="creuse">le soir</span>
+        </h1>
+
+        <p class="placard__mot">
+          Pas de programmation figée : on adapte au monde, à la saison et à
+          l'humeur du bar. Ce qui suit revient chaque semaine. Le reste
+          s'annonce sur Instagram, quelques jours avant.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Le programme
+
+         ATTENTION — les soirées listées ci-dessous sont des exemples de
+         structure. Seul le happy hour est confirmé (il figure sur la caisse
+         du bar). Tout le reste est à faire valider ou à remplacer par la
+         vraie programmation avant mise en ligne.
+         ================================================================== -->
+    <section class="programme">
+      <div class="contenant">
+
+        <article class="soiree">
+          <p class="soiree__quand"><b>17h</b>Tous les soirs</p>
+          <div>
+            <h2>Happy hour</h2>
+            <p>
+              L'heure où la pression est au meilleur prix. On pousse la porte en
+              sortant du boulot, on prend un bec au hasard, on reste plus
+              longtemps que prévu.
+            </p>
+          </div>
+          <span class="tampon tampon--vert">Toute l'année</span>
+        </article>
+
+        <article class="soiree">
+          <p class="soiree__quand"><b>Jeu</b>À partir de 21h</p>
+          <div>
+            <h2>Le bec surprise</h2>
+            <p>
+              Un fût qu'on n'avait pas encore mis en perce. On l'ouvre le jeudi,
+              on ne dit pas lequel avant. Quand il est fini, il est fini.
+            </p>
+          </div>
+          <span class="tampon">À confirmer</span>
+        </article>
+
+        <article class="soiree">
+          <p class="soiree__quand"><b>Ven</b>À partir de 22h</p>
+          <div>
+            <h2>Le son monte</h2>
+            <p>
+              La playlist passe en mode soirée, le shaker ne s'arrête plus.
+              C'est le soir où on ne s'entend plus parler, et c'est fait exprès.
+            </p>
+          </div>
+          <span class="tampon">À confirmer</span>
+        </article>
+
+        <article class="soiree">
+          <p class="soiree__quand"><b>Sam</b>À partir de 22h</p>
+          <div>
+            <h2>Grande soirée</h2>
+            <p>
+              Le samedi de Deauville, avec ce que ça implique. Venez tôt si vous
+              voulez une table, venez tard si vous voulez danser.
+            </p>
+          </div>
+          <span class="tampon">À confirmer</span>
+        </article>
+
+        <article class="soiree">
+          <p class="soiree__quand"><b>Dim</b>Dès 17h</p>
+          <div>
+            <h2>La décompression</h2>
+            <p>
+              Rythme lent, planches à partager, conversations qui durent.
+              Le dimanche est le seul soir où le bar se tait un peu.
+            </p>
+          </div>
+          <span class="tampon">À confirmer</span>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Encart privatisation
+         ================================================================== -->
+    <section style="padding-bottom:clamp(64px,10vh,110px)">
+      <div class="contenant">
+        <div class="encart-affiche">
+          <div>
+            <h2>Votre soirée <em>à vous</em></h2>
+            <p>
+              Anniversaire, pot de départ, afterwork ou fin de séminaire : on
+              garde la place, on adapte la carte et le son. Un coup de fil suffit
+              pour caler une date.
+            </p>
+          </div>
+          <a class="bouton" href="groupes.html">Organiser une soirée</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================================================
+       Pied de l'affiche
+       ==================================================================== -->
+  <footer class="ourlet">
+    <div class="contenant">
+
+      <div class="ourlet__grille">
+
+        <div>
+          <img class="ourlet__logo" src="assets/img/logo.png" alt="Sales Gosses" width="78" height="78">
+          <p style="font-family:var(--mono);font-size:13px;line-height:1.8;margin:0">
+            Bar à bières,<br>cocktails &amp; tapas.<br>Deauville, depuis 2019.
+          </p>
+        </div>
+
+        <div>
+          <h3>Le bar</h3>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="carte.html">La carte</a></li>
+            <li><a href="soirees.html">Soirées</a></li>
+            <li><a href="groupes.html">Groupes</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Horaires</h3>
+          <ul>
+            <li>Lundi → dimanche</li>
+            <li>17h → 1h</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Nous joindre</h3>
+          <ul>
+            <li><a href="tel:+33642418167">06 42 41 81 67</a></li>
+            <li><a href="https://maps.google.com/?q=21+Rue+Breney,+14800+Deauville" target="_blank" rel="noopener">21 rue Breney</a></li>
+            <li><a href="https://www.instagram.com/salesgossesdeauville/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.facebook.com/salesgossesdeauville/" target="_blank" rel="noopener">Facebook</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="ourlet__bas">
+        <span>© <span id="annee">2026</span> Sales Gosses</span>
+        <span>L'abus d'alcool est dangereux pour la santé</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>document.getElementById('annee').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>
