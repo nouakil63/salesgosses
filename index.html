@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sales Gosses — Bar à bières, cocktails &amp; tapas à Deauville</title>
+  <meta name="description" content="Onze becs pression tournants, plus de 100 bières bouteilles, des cocktails et une belle carte des vins. Le bar de copains de Deauville, à deux pas de la place Morny. Ouvert tous les soirs dès 17h.">
+
+  <!-- Partage social -->
+  <meta property="og:title" content="Sales Gosses — Deauville">
+  <meta property="og:description" content="Bar à bières, cocktails &amp; tapas. 11 becs tournants, terrasse de 100 m², à 50 m de la place Morny.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/logo.png">
+  <meta name="theme-color" content="#11140E">
+
+  <link rel="icon" href="assets/img/logo.png">
+
+  <!-- Typographies : Big Shoulders Display pour l'enseigne, Instrument Sans pour le texte -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <a class="saut-contenu" href="#contenu">Aller au contenu</a>
+
+  <!-- ====================================================================
+       En-tête
+       ==================================================================== -->
+  <header class="entete">
+    <a class="entete__logo" href="index.html" aria-label="Sales Gosses, retour à l'accueil">
+      <img src="assets/img/logo.png" alt="Logo Sales Gosses" width="52" height="52">
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="index.html" aria-current="page">Accueil</a>
+      <a href="carte.html">La carte</a>
+      <a href="groupes.html">Groupes</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="entete__action">
+      <a class="bouton" href="tel:+33642418167">Réserver</a>
+    </div>
+
+    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ==================================================================
+         Hero — vidéo plein cadre
+         Déposer le fichier dans assets/video/hero.mp4
+         ================================================================== -->
+    <section class="hero">
+      <video class="hero__video"
+             autoplay muted loop playsinline
+             preload="metadata"
+             poster="assets/img/hero-poster.jpg"
+             aria-hidden="true"
+             tabindex="-1">
+        <source src="assets/video/hero.mp4" type="video/mp4">
+        <source src="assets/video/hero.webm" type="video/webm">
+      </video>
+
+      <div class="hero__voile"></div>
+
+      <div class="hero__contenu contenant">
+        <img class="hero__marque" src="assets/img/logo.png" alt="Sales Gosses, bar à bières et cocktails à Deauville" width="132" height="132">
+
+        <h1>
+          <span class="ligne">Le bar</span>
+          <span class="ligne ligne--decalee">des copains</span>
+        </h1>
+
+        <p class="hero__chapo">
+          Onze becs pression qui tournent, cent bières en bouteille, des cocktails
+          faits à la main et une terrasse sur la place Morny. On ouvre à 17h, on
+          ferme quand la musique s'arrête.
+        </p>
+
+        <div class="hero__actions">
+          <a class="bouton" href="carte.html">Voir la carte</a>
+          <a class="bouton bouton--fantome" href="groupes.html">Privatiser le bar</a>
+        </div>
+
+        <div class="hero__bandeau">
+          <span class="pastille" data-pastille data-etat="ferme">Horaires</span>
+          <span>21 rue Breney &middot; <strong>Deauville</strong></span>
+          <span>Tous les jours &middot; <strong>17h → 1h</strong></span>
+          <span><strong>200 m²</strong> + 100 m² de terrasse</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         SIGNATURE — Le mur des 11 becs
+         La numérotation 01 → 11 correspond aux tireuses réelles du bar.
+         Modifier les bières ici à chaque rotation de fût.
+         ================================================================== -->
+    <section class="becs section" id="becs">
+      <div class="contenant">
+
+        <div class="becs__entete apparait">
+          <div>
+            <p class="surtitre">Le mur des becs</p>
+            <h2 class="titre-section">Onze pressions,<br>jamais les mêmes</h2>
+          </div>
+          <p class="chapo" style="max-width:36ch">
+            Onze becs tournants, c'est rare en Normandie. Les fûts changent au fil
+            des semaines : ce qui est écrit ici est ce qui coule ce soir.
+          </p>
+        </div>
+
+        <div class="mur">
+
+          <div class="bec apparait">
+            <span class="bec__numero">01</span>
+            <span class="bec__nom">La Chouffe</span>
+            <span class="bec__style">Blonde belge</span>
+            <span class="bec__degre">8,0°</span>
+          </div>
+
+          <div class="bec apparait">
+            <span class="bec__numero">02</span>
+            <span class="bec__nom">Duvel</span>
+            <span class="bec__style">Golden ale</span>
+            <span class="bec__degre">8,5°</span>
+          </div>
+
+          <div class="bec apparait">
+            <span class="bec__numero">03</span>
+            <span class="bec__nom">Paix Dieu</span>
+            <span class="bec__style">Triple de pleine lune</span>
+            <span class="bec__degre">10,0°</span>
+          </div>
+
+          <div class="bec apparait">
+            <span class="bec__numero">04</span>
+            <span class="bec__nom">Brewdog Punk IPA</span>
+            <span class="bec__style">IPA</span>
+            <span class="bec__degre">5,4°</span>
+          </div>
+
+          <div class="bec apparait">
+            <span class="bec__numero">05</span>
+            <span class="bec__nom">Kwak</span>
+            <span class="bec__style">Ambrée belge</span>
+            <span class="bec__degre">8,4°</span>
+          </div>
+
+          <div class="bec apparait">
+            <span class="bec__numero">06</span>
+            <span class="bec__nom">Delirium</span>
+            <span class="bec__style">Blonde forte</span>
+            <span class="bec__degre">8,5°</span>
+          </div>
+
+          <div class="bec apparait">
+            <span class="bec__numero">07</span>
+            <span class="bec__nom">Rince Cochon</span>
+            <span class="bec__style">Blonde</span>
+            <span class="bec__degre">8,5°</span>
+          </div>
+
+          <div class="bec apparait">
+            <span class="bec__numero">08</span>
+            <span class="bec__nom">Chouffe Cherry</span>
+            <span class="bec__style">Fruitée</span>
+            <span class="bec__degre">8,0°</span>
+          </div>
+
+          <div class="bec apparait">
+            <span class="bec__numero">09</span>
+            <span class="bec__nom">Grimbergen Blanche</span>
+            <span class="bec__style">Blanche</span>
+            <span class="bec__degre">6,0°</span>
+          </div>
+
+          <div class="bec apparait">
+            <span class="bec__numero">10</span>
+            <span class="bec__nom">Brasserie normande</span>
+            <span class="bec__style">Invitée du moment</span>
+            <span class="bec__degre">—</span>
+          </div>
+
+          <div class="bec apparait">
+            <span class="bec__numero">11</span>
+            <span class="bec__nom">Le bec surprise</span>
+            <span class="bec__style">Demandez au bar</span>
+            <span class="bec__degre">—</span>
+          </div>
+
+        </div>
+
+        <p class="becs__note apparait">
+          Liste indicative, mise à jour à chaque rotation de fût. Pour savoir ce qui
+          coule ce soir précisément, un coup de fil suffit :
+          <a href="tel:+33642418167" class="accent">06 42 41 81 67</a>.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Bandeau défilant
+         ================================================================== -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__piste">
+        <span>Bières</span><span>&bull;</span><span>Cocktails</span><span>&bull;</span><span>Vins</span><span>&bull;</span><span>Tapas</span><span>&bull;</span><span>Terrasse</span><span>&bull;</span>
+        <span>Bières</span><span>&bull;</span><span>Cocktails</span><span>&bull;</span><span>Vins</span><span>&bull;</span><span>Tapas</span><span>&bull;</span><span>Terrasse</span><span>&bull;</span>
+      </div>
+    </div>
+
+    <!-- ==================================================================
+         Aperçu de la carte
+         ================================================================== -->
+    <section class="section">
+      <div class="contenant">
+
+        <div class="apparait">
+          <p class="surtitre">Ce qu'on sert</p>
+          <h2 class="titre-section">On boit bien,<br>on grignote mieux</h2>
+          <p class="chapo">
+            Une carte construite pour durer toute la soirée : on commence par une
+            pression, on enchaîne sur un cocktail, on partage une planche, et
+            personne n'a envie de partir.
+          </p>
+        </div>
+
+        <div class="grille-cartes">
+
+          <article class="carte apparait">
+            <span class="carte__compte">100+</span>
+            <h3>Bières</h3>
+            <p>
+              Onze becs tournants et plus de cent références en bouteille :
+              Belgique, Italie, Mexique, Argentine, et les brasseries normandes
+              qu'on aime bien.
+            </p>
+          </article>
+
+          <article class="carte apparait">
+            <span class="carte__compte">Maison</span>
+            <h3>Cocktails</h3>
+            <p>
+              Les classiques faits correctement, quelques créations du bar et une
+              sangria qui a fait sa réputation sur la terrasse.
+            </p>
+          </article>
+
+          <article class="carte apparait">
+            <span class="carte__compte">Vins</span>
+            <h3>Au verre</h3>
+            <p>
+              Une sélection courte et sérieuse, au verre comme à la bouteille, pour
+              ceux que le houblon n'intéresse pas.
+            </p>
+          </article>
+
+          <article class="carte apparait">
+            <span class="carte__compte">Tapas</span>
+            <h3>Street food</h3>
+            <p>
+              Planches à partager, croques, accras et petites assiettes.
+              De quoi tenir jusqu'à la fermeture.
+            </p>
+          </article>
+
+        </div>
+
+        <p style="margin-top:36px" class="apparait">
+          <a class="bouton bouton--fantome" href="carte.html">Voir la carte complète</a>
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Bande photo — remplacer par les vraies photos du bar
+         ================================================================== -->
+    <section class="bande-photo" aria-label="L'ambiance du bar">
+      <figure><img src="assets/img/placeholder-1.jpg" alt="La terrasse des Sales Gosses place Morny" loading="lazy" width="900" height="1100"></figure>
+      <figure><img src="assets/img/placeholder-2.jpg" alt="Le comptoir et ses onze becs pression" loading="lazy" width="900" height="1100"></figure>
+      <figure><img src="assets/img/placeholder-3.jpg" alt="Une soirée au bar" loading="lazy" width="900" height="1100"></figure>
+      <figure><img src="assets/img/placeholder-4.jpg" alt="Planche de tapas à partager" loading="lazy" width="900" height="1100"></figure>
+    </section>
+
+    <!-- ==================================================================
+         Groupes
+         ================================================================== -->
+    <section class="section section--filet">
+      <div class="contenant duo">
+
+        <div class="apparait">
+          <p class="surtitre">Groupes &amp; privatisation</p>
+          <h2 class="titre-section">Votre soirée,<br>notre bar</h2>
+          <p class="chapo">
+            Anniversaire, pot de départ, afterwork d'équipe ou séminaire qui se
+            termine bien : on met un espace de côté, on adapte la carte, et on
+            s'occupe du reste.
+          </p>
+
+          <ul class="liste-atouts">
+            <li><strong>150</strong> personnes en configuration debout, bar entier</li>
+            <li><strong>200 m²</strong> de salle, plus 100 m² de terrasse</li>
+            <li><strong>50 m</strong> de la place Morny, 400 m de la gare</li>
+            <li><strong>7j/7</strong> de 17h à 1h, toute l'année</li>
+          </ul>
+
+          <a class="bouton" href="groupes.html">Organiser une soirée</a>
+        </div>
+
+        <div class="cadre-photo apparait">
+          <img src="assets/img/placeholder-3.jpg" alt="Le bar privatisé pour une soirée de groupe" loading="lazy" width="900" height="1100">
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         Infos pratiques
+         ================================================================== -->
+    <section class="section" style="background:var(--nuit-haut)">
+      <div class="contenant duo">
+
+        <div class="apparait">
+          <p class="surtitre">Nous trouver</p>
+          <h2 class="titre-section">21 rue Breney,<br>Deauville</h2>
+          <p class="chapo">
+            Au cœur du centre historique, à cinquante mètres de la place Morny.
+            Depuis la gare de Deauville-Trouville, comptez cinq minutes à pied.
+          </p>
+          <p style="margin-top:28px">
+            <a class="bouton" href="https://maps.google.com/?q=Sales+Gosses,+21+Rue+Breney,+14800+Deauville" target="_blank" rel="noopener">Ouvrir dans Maps</a>
+          </p>
+        </div>
+
+        <div class="apparait">
+          <iframe
+            title="Carte : Sales Gosses, 21 rue Breney, Deauville"
+            src="https://www.google.com/maps?q=21+Rue+Breney,+14800+Deauville&output=embed"
+            width="100%" height="380" style="border:1px solid var(--filet);border-radius:3px;filter:grayscale(0.4) contrast(1.05) brightness(0.85)"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================================================
+       Pied de page
+       ==================================================================== -->
+  <footer class="pied">
+    <div class="contenant">
+
+      <div class="pied__grille">
+
+        <div>
+          <img class="pied__logo" src="assets/img/logo.png" alt="Sales Gosses" width="74" height="74">
+          <p style="font-size:15px;color:var(--craie-doux);max-width:32ch">
+            Bar à bières, cocktails &amp; tapas.<br>
+            Détente, cool &amp; relax, depuis 2019.
+          </p>
+        </div>
+
+        <div>
+          <h4>Le bar</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="carte.html">La carte</a></li>
+            <li><a href="groupes.html">Groupes</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Horaires</h4>
+          <ul>
+            <li>Lundi → dimanche</li>
+            <li>17h → 1h</li>
+            <li><span class="pastille" data-pastille data-etat="ferme">Horaires</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Nous joindre</h4>
+          <ul>
+            <li><a href="tel:+33642418167">06 42 41 81 67</a></li>
+            <li><a href="https://maps.google.com/?q=21+Rue+Breney,+14800+Deauville" target="_blank" rel="noopener">21 rue Breney, Deauville</a></li>
+            <li><a href="https://www.instagram.com/salesgossesdeauville/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.facebook.com/salesgossesdeauville/" target="_blank" rel="noopener">Facebook</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pied__bas">
+        <span>© <span id="annee">2026</span> Sales Gosses — Deauville</span>
+        <span>L'abus d'alcool est dangereux pour la santé. À consommer avec modération.</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Données structurées : aide au référencement local -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BarOrPub",
+    "name": "Sales Gosses",
+    "description": "Bar à bières, cocktails et tapas à Deauville. 11 becs pression tournants, plus de 100 bières bouteilles, terrasse de 100 m².",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "21 rue Breney",
+      "addressLocality": "Deauville",
+      "postalCode": "14800",
+      "addressCountry": "FR"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 49.3600893, "longitude": 0.0784297 },
+    "telephone": "+33642418167",
+    "servesCuisine": ["Tapas", "Street food"],
+    "priceRange": "€€",
+    "openingHours": "Mo-Su 17:00-01:00",
+    "sameAs": [
+      "https://www.instagram.com/salesgossesdeauville/",
+      "https://www.facebook.com/salesgossesdeauville/"
+    ]
+  }
+  </script>
+
+  <script src="assets/js/main.js"></script>
+  <script>document.getElementById('annee').textContent = new Date().getFullYear();</script>
+
+</body>
+</html>

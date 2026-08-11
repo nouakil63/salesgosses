@@ -1,0 +1,17 @@
+# Système
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+
+# Dépendances (si un build est ajouté plus tard)
+node_modules/
+dist/
+
+# Médias lourds bruts : ne pas versionner les rushes vidéo
+assets/video/*.mov
+assets/video/*.MOV
+assets/video/raw/

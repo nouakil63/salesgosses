@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La carte — Sales Gosses, Deauville</title>
+  <meta name="description" content="Bières pression et bouteilles, cocktails maison, vins au verre et planches à partager. La carte du bar Sales Gosses à Deauville.">
+  <meta name="theme-color" content="#11140E">
+  <link rel="icon" href="assets/img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <a class="saut-contenu" href="#contenu">Aller au contenu</a>
+
+  <header class="entete est-collee">
+    <a class="entete__logo" href="index.html" aria-label="Sales Gosses, retour a l'accueil">
+      <img src="assets/img/logo.png" alt="Logo Sales Gosses" width="52" height="52">
+    </a>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="carte.html" aria-current="page">La carte</a>
+      <a href="groupes.html">Groupes</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="entete__action"><a class="bouton" href="tel:+33642418167">Réserver</a></div>
+    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="contenu">
+    <section class="banniere">
+      <div class="contenant">
+        <p class="surtitre">La carte</p>
+        <h1>Tout ce<br>qui se boit</h1>
+        <p class="chapo">Le détail arrive : bières, cocktails, vins et planches. En attendant, voici la structure de la page. Envoyez les intitulés et les prix, on remplit.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="contenant">
+        <div class="grille-cartes">
+          <article class="carte apparait">
+            <span class="carte__compte">01</span>
+            <h3>Les pressions</h3>
+            <p>Les onze becs tournants, avec le style et le degré. Repris du mur des becs de l'accueil.</p>
+          </article>
+          <article class="carte apparait">
+            <span class="carte__compte">02</span>
+            <h3>Les bouteilles</h3>
+            <p>Plus de cent références, classées par pays d'origine.</p>
+          </article>
+          <article class="carte apparait">
+            <span class="carte__compte">03</span>
+            <h3>Les cocktails</h3>
+            <p>Classiques, créations maison et sangria.</p>
+          </article>
+          <article class="carte apparait">
+            <span class="carte__compte">04</span>
+            <h3>Les vins</h3>
+            <p>Au verre et à la bouteille, sélection courte.</p>
+          </article>
+          <article class="carte apparait">
+            <span class="carte__compte">05</span>
+            <h3>Sans alcool</h3>
+            <p>Softs, bières sans alcool et cocktails sans alcool.</p>
+          </article>
+          <article class="carte apparait">
+            <span class="carte__compte">06</span>
+            <h3>À grignoter</h3>
+            <p>Planches à partager, croques, accras, petites assiettes.</p>
+          </article>
+        </div>
+        <p style="margin-top:40px" class="apparait">
+          <a class="bouton bouton--fantome" href="contact.html">Une question sur la carte</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pied">
+    <div class="contenant">
+      <div class="pied__grille">
+        <div>
+          <img class="pied__logo" src="assets/img/logo.png" alt="Sales Gosses" width="74" height="74">
+          <p style="font-size:15px;color:var(--craie-doux);max-width:32ch">
+            Bar à bières, cocktails &amp; tapas.<br>Détente, cool &amp; relax, depuis 2019.
+          </p>
+        </div>
+        <div>
+          <h4>Le bar</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="carte.html">La carte</a></li>
+            <li><a href="groupes.html">Groupes</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Horaires</h4>
+          <ul>
+            <li>Lundi → dimanche</li>
+            <li>17h → 1h</li>
+            <li><span class="pastille" data-pastille data-etat="ferme">Horaires</span></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Nous joindre</h4>
+          <ul>
+            <li><a href="tel:+33642418167">06 42 41 81 67</a></li>
+            <li><a href="https://maps.google.com/?q=21+Rue+Breney,+14800+Deauville" target="_blank" rel="noopener">21 rue Breney, Deauville</a></li>
+            <li><a href="https://www.instagram.com/salesgossesdeauville/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.facebook.com/salesgossesdeauville/" target="_blank" rel="noopener">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pied__bas">
+        <span>© <span id="annee">2026</span> Sales Gosses — Deauville</span>
+        <span>L'abus d'alcool est dangereux pour la santé. À consommer avec modération.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>document.getElementById('annee').textContent = new Date().getFullYear();</script>
+</body>
+</html>
