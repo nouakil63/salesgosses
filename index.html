@@ -48,36 +48,25 @@
   <main id="contenu">
 
     <!-- ==================================================================
-         Hero — vidéo plein cadre
-         Déposer le fichier dans assets/video/hero.mp4
+         Titre. Pas de vidéo en fond : les rushes sont carrés et de
+         définition moyenne, les étirer plein écran les rendrait flous.
+         Ils ont leur propre place, juste en dessous.
          ================================================================== -->
-    <section class="hero">
-      <video class="hero__video"
-             autoplay muted loop playsinline
-             preload="metadata"
-             poster="assets/img/hero-poster.jpg"
-             aria-hidden="true"
-             tabindex="-1">
-        <source src="assets/video/hero.mp4" type="video/mp4">
-        <source src="assets/video/hero.webm" type="video/webm">
-      </video>
-
-      <div class="hero__voile"></div>
-
-      <div class="hero__contenu contenant">
-        <img class="hero__marque" src="assets/img/logo.png" alt="Sales Gosses, bar à bières et cocktails à Deauville" width="130" height="130">
+    <section class="ouverture">
+      <div class="contenant">
+        <img class="ouverture__marque" src="assets/img/logo.png" alt="Sales Gosses, bar à bières et cocktails à Deauville" width="120" height="120">
 
         <h1>
           <span class="ligne">Le bar</span>
           <span class="ligne ligne--decalee">des copains</span>
         </h1>
 
-        <p class="hero__chapo">
+        <p class="ouverture__mot">
           Neuf becs qui tournent, des cocktails faits à la main et de quoi
           grignoter jusqu'à la fermeture. On ouvre à 17h.
         </p>
 
-        <div class="hero__actions">
+        <div class="ouverture__actions">
           <a class="bouton" href="carte.html">Voir la carte</a>
           <a class="bouton bouton--creux" href="groupes.html">Privatiser le bar</a>
         </div>
@@ -85,23 +74,47 @@
     </section>
 
     <!-- ==================================================================
-         Bande d'adresse : les infos utiles, en grand, tout de suite
+         Le triptyque — trois écrans, comme derrière un comptoir.
+         Fichiers : assets/video/hero-1.mp4, hero-2.mp4, hero-3.mp4
+         Images d'attente : assets/img/hero-1.jpg, hero-2.jpg, hero-3.jpg
          ================================================================== -->
-    <section class="adresse" aria-label="Informations pratiques">
-      <div class="contenant adresse__piste">
-        <p class="adresse__item">
-          <small>Où</small>
-          <a href="https://maps.google.com/?q=21+Rue+Breney,+14800+Deauville" target="_blank" rel="noopener">21 rue Breney, Deauville</a>
-        </p>
-        <p class="adresse__item">
-          <small>Quand</small>
-          Tous les soirs, 17h → 1h
-        </p>
-        <p class="adresse__item">
-          <small>Réserver</small>
-          <a href="tel:+33642418167">06 42 41 81 67</a>
-        </p>
-        <span class="adresse__etat" data-pastille data-etat="ferme">Horaires</span>
+    <section class="vitrine" aria-label="Le bar en images">
+
+      <figure class="ecran">
+        <video src="assets/video/hero-2.mp4"
+               poster="assets/img/hero-2.jpg"
+               autoplay muted loop playsinline preload="none"
+               aria-label="Le bar en images"></video>
+        <figcaption><b>01</b> Au comptoir</figcaption>
+      </figure>
+
+      <figure class="ecran">
+        <video src="assets/video/hero-3.mp4"
+               poster="assets/img/hero-3.jpg"
+               autoplay muted loop playsinline preload="none"
+               aria-label="Le bar en images"></video>
+        <figcaption><b>02</b> En salle</figcaption>
+      </figure>
+
+      <figure class="ecran">
+        <video src="assets/video/hero-1.mp4"
+               poster="assets/img/hero-1.jpg"
+               autoplay muted loop playsinline preload="none"
+               aria-label="Le bar en images"></video>
+        <figcaption><b>03</b> Côté cocktails</figcaption>
+      </figure>
+
+    </section>
+
+    <!-- ==================================================================
+         Barre pratique : sobre, sur une seule ligne
+         ================================================================== -->
+    <section class="pratique" aria-label="Informations pratiques">
+      <div class="contenant pratique__piste">
+        <span><a href="https://maps.google.com/?q=21+Rue+Breney,+14800+Deauville" target="_blank" rel="noopener"><strong>21 rue Breney</strong>, Deauville</a></span>
+        <span>Tous les soirs <strong>17h → 1h</strong></span>
+        <span><a href="tel:+33642418167"><strong>06 42 41 81 67</strong></a></span>
+        <span class="pastille" data-pastille data-etat="ferme">Horaires</span>
       </div>
     </section>
 
@@ -197,34 +210,22 @@
     </section>
 
     <!-- ==================================================================
-         Extrait de la carte — du contenu réel, pas des compteurs
+         Ce qu'on commande — extrait de la vraie carte
          ================================================================== -->
     <section class="section">
       <div class="contenant">
 
         <div class="drapeau apparait">
-          <h2>Un aperçu<br>de la carte</h2>
+          <h2>Ce qu'on<br>commande</h2>
           <p>
-            Ce qu'on commande le plus souvent. Le reste est sur la carte :
+            Les habitués vont droit dessus. Le reste est sur la carte :
             whiskies, rhums, gins, vins au verre et sans alcool.
           </p>
         </div>
 
-        <div class="extrait apparait">
+        <div class="selection apparait">
 
-          <div class="extrait__pile">
-            <h3>Au bec</h3>
-            <ul>
-              <li>La Chouffe</li>
-              <li>Paix Dieu</li>
-              <li>NEIPA Jamaican</li>
-              <li>Kasteel Red</li>
-              <li>Cuvée des Trolls</li>
-              <li>Blanche de Namur</li>
-            </ul>
-          </div>
-
-          <div class="extrait__pile">
+          <div class="selection__pile">
             <h3>Au shaker</h3>
             <ul>
               <li>Mojito Sales Gosses <em>Maison</em></li>
@@ -233,22 +234,24 @@
               <li>Moscow Mule</li>
               <li>Piña Colada</li>
               <li>Ti Punch</li>
+              <li>Spritz</li>
             </ul>
           </div>
 
-          <div class="extrait__pile">
+          <div class="selection__pile">
             <h3>Sur la planche</h3>
             <ul>
-              <li>Planche mixte</li>
+              <li>Planche mixte <em>Maison</em></li>
               <li>Camembert fondu</li>
               <li>Sticks de poulet</li>
+              <li>Sticks de mozzarella</li>
               <li>Croque-monsieur</li>
               <li>Chicken burger</li>
               <li>Guacamole</li>
             </ul>
           </div>
 
-          <div class="extrait__suite">
+          <div class="selection__fin">
             <p>Et cent-vingt autres lignes</p>
             <a class="bouton" href="carte.html">Voir la carte</a>
           </div>
@@ -256,23 +259,6 @@
         </div>
 
       </div>
-    </section>
-
-    <!-- ==================================================================
-         Bande photo — remplacer par les vraies photos du bar
-         ================================================================== -->
-    <section class="bande-photo" aria-label="L'ambiance du bar">
-      <figure><img src="assets/img/placeholder-1.jpg" alt="Le bar un soir de semaine" loading="lazy" width="900" height="1100"></figure>
-      <figure><img src="assets/img/placeholder-2.jpg" alt="Le comptoir et ses becs pression" loading="lazy" width="900" height="1100"></figure>
-      <figure><img src="assets/img/placeholder-3.jpg" alt="Une soirée au bar" loading="lazy" width="900" height="1100"></figure>
-      <figure><img src="assets/img/placeholder-4.jpg" alt="Planche à partager" loading="lazy" width="900" height="1100"></figure>
-    </section>
-
-    <!-- ==================================================================
-         La devise du bar, dans ses propres mots
-         ================================================================== -->
-    <section class="devise" aria-label="La devise du bar">
-      <p>Détente<span>,</span><br>cool <span>&amp;</span> relax</p>
     </section>
 
     <!-- ==================================================================

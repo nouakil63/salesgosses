@@ -94,6 +94,40 @@ communiqué est faux.
 
 ---
 
+## Le triptyque vidéo
+
+Les trois rushes fournis sont **carrés (1080 × 1080)** pour deux d'entre eux, et
+**vertical basse définition (360 × 636)** pour le troisième. Aucun n'est
+exploitable en fond de hero plein écran : l'étirement les rendrait flous et le
+recadrage 16/9 couperait la moitié de l'image.
+
+La page les présente donc comme **trois écrans côte à côte**, à leur format
+natif, sous le bloc de titre. Le format contraint la mise en page au lieu d'être
+subi.
+
+| Emplacement | Fichier | Source |
+|---|---|---|
+| Écran 01 | `hero-2.mp4` | 1080 × 1080 |
+| Écran 02 | `hero-3.mp4` | 1080 × 1080 |
+| Écran 03 | `hero-1.mp4` | 360 × 636 — **le plus faible**, à remplacer en priorité |
+
+Les vidéos ne se lisent que lorsqu'elles sont visibles à l'écran (trois lectures
+simultanées font chauffer un téléphone), et pas du tout si le système demande un
+mouvement réduit.
+
+**Les légendes sont des suppositions.** « Au comptoir », « En salle », « Côté
+cocktails » ont été écrites sans avoir vu les vidéos. À corriger dans les
+`<figcaption>` de `index.html`.
+
+**Les images d'attente `hero-1..3.jpg` sont provisoires.** Les remplacer par de
+vraies extractions :
+
+```bash
+ffmpeg -y -i hero-1.mp4 -ss 00:00:02 -vframes 1 -q:v 4 ../img/hero-1.jpg
+```
+
+---
+
 ## Page d'accueil : ce qu'on évite
 
 Trois automatismes rendent une page immédiatement reconnaissable comme
@@ -101,9 +135,9 @@ générique. Ils sont bannis de l'accueil :
 
 1. **Les cartes à gros chiffres** (« 100+ Bières », « 3 Formules »). Remplacées
    par un extrait de la vraie carte, avec de vrais noms de produits.
-2. **La rangée de pastilles translucides** sous le hero. Remplacée par un
-   bandeau vert pleine largeur, en grandes capitales condensées.
-3. **Le triptyque étiquette / titre / chapo** répété à l'identique dans chaque
+2. **La vidéo plein écran en fond de hero**, avec texte blanc par-dessus. Le
+   bloc d'ouverture est purement typographique ; les vidéos ont leur section.
+3. **Le motif étiquette / titre / chapo** répété à l'identique dans chaque
    section. Remplacé par le titre en drapeau (`.drapeau`), où le sous-titre se
    cale contre le bas du grand titre.
 

@@ -132,20 +132,52 @@
   }
 
   /* ------------------------------------------------------------------
-     6. Vidéo du hero : repli propre si le fichier est absent ou refusé
+     6. Le triptyque
+     Trois vidéos qui tournent en même temps, ça chauffe un téléphone.
+     On ne lit que celles qui sont visibles à l'écran.
      ------------------------------------------------------------------ */
-  var video = document.querySelector('.hero__video');
+  var ecrans = document.querySelectorAll('.ecran video');
 
-  if (video) {
-    video.addEventListener('error', function () {
-      video.style.display = 'none';
-    });
+  if (ecrans.length) {
+    var mouvementReduit =
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Certains navigateurs mobiles bloquent la lecture automatique.
-    var lecture = video.play();
-    if (lecture && typeof lecture.catch === 'function') {
-      lecture.catch(function () {
-        /* Le poster prend le relais, rien à faire. */
+    // Mouvement réduit : on garde l'image d'attente, sans lecture.
+    if (mouvementReduit) {
+      ecrans.forEach(function (v) {
+        v.removeAttribute('autoplay');
+        v.pause();
+      });
+    } else if ('IntersectionObserver' in window) {
+      var lecteur = new IntersectionObserver(
+        function (entrees) {
+          entrees.forEach(function (entree) {
+            var v = entree.target;
+
+            if (entree.isIntersecting) {
+              if (v.preload === 'none') v.preload = 'auto';
+              var p = v.play();
+              if (p && typeof p.catch === 'function') {
+                p.catch(function () {
+                  /* Lecture automatique refusée : l'image d'attente suffit. */
+                });
+              }
+            } else {
+              v.pause();
+            }
+          });
+        },
+        { threshold: 0.25 }
+      );
+
+      ecrans.forEach(function (v) {
+        lecteur.observe(v);
+
+        // Fichier absent ou illisible : on laisse le poster en place.
+        v.addEventListener('error', function () {
+          v.style.visibility = 'hidden';
+        });
       });
     }
   }
