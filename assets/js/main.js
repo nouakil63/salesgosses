@@ -132,11 +132,11 @@
   }
 
   /* ------------------------------------------------------------------
-     6. Le triptyque
+     6. Les vidéos des moments de la nuit
      Trois vidéos qui tournent en même temps, ça chauffe un téléphone.
-     On ne lit que celles qui sont visibles à l'écran.
+     On ne charge et ne lit que celles qui sont visibles à l'écran.
      ------------------------------------------------------------------ */
-  var ecrans = document.querySelectorAll('.ecran video');
+  var ecrans = document.querySelectorAll('.moment__ecran video');
 
   if (ecrans.length) {
     var mouvementReduit =

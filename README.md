@@ -94,30 +94,30 @@ communiqué est faux.
 
 ---
 
-## Le triptyque vidéo
+## La structure de l'accueil : les moments de la nuit
 
-Les trois rushes fournis sont **carrés (1080 × 1080)** pour deux d'entre eux, et
-**vertical basse définition (360 × 636)** pour le troisième. Aucun n'est
-exploitable en fond de hero plein écran : l'étirement les rendrait flous et le
-recadrage 16/9 couperait la moitié de l'image.
+L'accueil suit l'ordre dans lequel le bar se vit — **17h, 21h, minuit, 1h** — au
+lieu d'empiler des sections thématiques. Les heures ne décorent pas la page,
+elles la structurent, ce qui n'a de sens que pour un bar du soir.
 
-La page les présente donc comme **trois écrans côte à côte**, à leur format
-natif, sous le bloc de titre. Le format contraint la mise en page au lieu d'être
-subi.
+Chaque moment associe une heure en très grand, un texte court, quelques
+commandes tirées de la vraie carte, et une des trois vidéos. Le côté de la vidéo
+alterne à chaque bloc.
 
-| Emplacement | Fichier | Source |
+| Moment | Vidéo | Source |
 |---|---|---|
-| Écran 01 | `hero-2.mp4` | 1080 × 1080 |
-| Écran 02 | `hero-3.mp4` | 1080 × 1080 |
-| Écran 03 | `hero-1.mp4` | 360 × 636 — **le plus faible**, à remplacer en priorité |
+| 17h — On ouvre | `hero-2.mp4` | 1080 × 1080 |
+| 21h — Ça se remplit | `hero-3.mp4` | 1080 × 1080 |
+| Minuit — Ça part en soirée | `hero-1.mp4` | 360 × 636 — **le plus faible**, à remplacer en priorité |
 
-Les vidéos ne se lisent que lorsqu'elles sont visibles à l'écran (trois lectures
-simultanées font chauffer un téléphone), et pas du tout si le système demande un
-mouvement réduit.
+Les vidéos sont carrées, donc affichées en carré : aucun étirement, aucun
+recadrage. Elles ne se chargent et ne se lisent que lorsqu'elles entrent dans
+l'écran, et pas du tout si le système demande un mouvement réduit.
 
-**Les légendes sont des suppositions.** « Au comptoir », « En salle », « Côté
-cocktails » ont été écrites sans avoir vu les vidéos. À corriger dans les
-`<figcaption>` de `index.html`.
+**L'association vidéo / moment est arbitraire.** Elle a été faite sans avoir vu
+les vidéos. Si la vidéo du comptoir se trouve en « minuit » alors qu'elle montre
+un début de soirée, il suffit d'échanger les attributs `src` et `poster` dans
+`index.html`.
 
 **Les images d'attente `hero-1..3.jpg` sont provisoires.** Les remplacer par de
 vraies extractions :

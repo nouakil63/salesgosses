@@ -809,13 +809,11 @@ p { margin: 0 0 1em; }
 /* ==========================================================================
    18. PAGE D'ACCUEIL — composants propres
 
-   On évite ici trois automatismes : la rangée de pastilles sous le hero,
-   la grille de cartes à gros chiffres, et le triptyque
-   étiquette / titre / chapo répété à l'identique dans chaque section.
-   La page raconte le bar avec le contenu réel de sa carte.
+   On évite ici trois automatismes : la vidéo plein écran en fond de hero,
+   la grille de cartes à gros chiffres, et le motif étiquette / titre / chapo
+   répété à l'identique dans chaque section.
    ========================================================================== */
 
-/* --- La bande d'adresse : un bandeau plein sous le hero, pas des pastilles --- */
 
 
 /* --- Titre en drapeau : le sous-titre se cale contre le grand titre --- */
@@ -850,140 +848,180 @@ p { margin: 0 0 1em; }
    à côte, à leur taille native. Le format dicte la mise en page.
    ========================================================================== */
 
-.vitrine {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4px;
-  background: var(--nuit);
+
+
+/* Le numéro d'écran, en bas à gauche, comme une voie de régie */
+
+/* --- Barre pratique : une ligne sobre, pas un aplat criard --- */
+
+/* --- Extrait de carte : deux colonnes éditoriales --- */
+
+
+
+@media (max-width: 900px) {
+}
+@media (max-width: 620px) {
 }
 
-.ecran {
+/* ==========================================================================
+   20. LA NUIT — le squelette de la page d'accueil
+
+   Un bar du soir se raconte dans l'ordre où il se vit : on ouvre, ça se
+   remplit, on ferme. Les heures ne décorent pas la page, elles la structurent,
+   et chaque moment accueille une des trois vidéos à son format carré natif.
+   ========================================================================== */
+
+.nuit { background: var(--nuit-haut); }
+
+.moment {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 72px);
+  padding-block: clamp(52px, 8vh, 96px);
+}
+/* On alterne le côté de l'écran : la page respire au lieu de défiler droit */
+.moment:nth-child(even) .moment__ecran { order: -1; }
+
+.moment__heure {
+  display: block;
+  font-family: var(--enseigne);
+  font-size: clamp(76px, 15vw, 190px);
+  font-weight: 800;
+  line-height: 0.78;
+  color: var(--sauge);
+  margin-bottom: 14px;
+}
+.moment__heure small {
+  display: block;
+  margin-top: 12px;
+  font-family: var(--texte);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--craie-doux);
+}
+
+.moment h2 {
+  font-size: clamp(30px, 4.2vw, 52px);
+  margin-bottom: 16px;
+}
+.moment p {
+  font-size: 17px;
+  color: var(--craie-doux);
+  max-width: 44ch;
+}
+
+/* Ce qu'on commande à cette heure-là : de vrais noms de la carte */
+.commande {
+  list-style: none;
+  margin: 22px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.commande li {
+  padding: 9px 14px 8px;
+  background: var(--nuit-bloc);
+  border-radius: 7px;
+  font-family: var(--enseigne);
+  font-size: 21px;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: background var(--transition), color var(--transition);
+}
+.commande li:hover { background: var(--sauge); color: var(--nuit); }
+.commande li[data-maison] {
+  background: transparent;
+  box-shadow: inset 0 0 0 2px rgba(217, 155, 52, 0.5);
+  color: var(--ambre);
+}
+.commande li[data-maison]:hover { background: var(--ambre); color: var(--nuit); }
+
+/* L'écran : la vidéo à son format carré, sans étirement */
+.moment__ecran {
   position: relative;
   margin: 0;
   aspect-ratio: 1 / 1;
   overflow: hidden;
+  border-radius: var(--rayon);
   background: var(--nuit-bloc);
 }
-.ecran video {
+.moment__ecran video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(0.88) brightness(0.78);
+  filter: saturate(0.9) brightness(0.82);
   transition: filter var(--transition), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.ecran:hover video { filter: none; transform: scale(1.04); }
+.moment__ecran:hover video { filter: none; transform: scale(1.03); }
 
-/* Le numéro d'écran, en bas à gauche, comme une voie de régie */
-.ecran figcaption {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 18px 12px 14px;
-  background: var(--nuit);
-  color: var(--craie);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-.ecran figcaption b {
-  font-family: var(--enseigne);
-  font-size: 22px;
-  font-weight: 800;
-  color: var(--sauge);
-  letter-spacing: 0;
-}
-
-/* --- Barre pratique : une ligne sobre, pas un aplat criard --- */
-.pratique {
-  background: var(--nuit-bloc);
-}
-.pratique__piste {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px 36px;
-  padding-block: 18px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  color: var(--craie-doux);
-}
-.pratique strong { color: var(--craie); font-weight: 700; }
-.pratique a:hover { color: var(--sauge); }
-.pratique .pastille { margin-left: auto; color: var(--sauge); }
-
-/* --- Extrait de carte : deux colonnes éditoriales --- */
-.selection {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
-  margin-top: 40px;
-}
-.selection__pile { padding: 30px 28px 32px; background: var(--nuit-bloc); }
-.selection__pile:nth-child(2) { background: rgba(35, 42, 28, 0.5); }
-
-.selection h3 {
-  margin-bottom: 20px;
-  font-size: 12px;
-  font-family: var(--texte);
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  color: var(--sauge);
-}
-.selection ul { list-style: none; margin: 0; padding: 0; }
-.selection li {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  font-family: var(--enseigne);
-  font-size: clamp(24px, 2.4vw, 34px);
-  line-height: 1.2;
-  text-transform: uppercase;
-  transition: color var(--transition);
-}
-.selection li:hover { color: var(--sauge); }
-.selection li em {
-  font-family: var(--texte);
-  font-style: normal;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: var(--ambre);
-}
-
-.selection__fin {
-  grid-column: 1 / -1;
+/* --- La dernière ligne de la nuit : fermeture et coordonnées --- */
+.derniere {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 24px 28px;
+  gap: 18px 32px;
+  padding: 26px 30px;
   background: var(--sauge);
   color: var(--nuit);
+  border-radius: var(--rayon);
 }
-.selection__fin p {
+.derniere p {
   margin: 0;
   font-family: var(--enseigne);
-  font-size: clamp(24px, 2.6vw, 36px);
+  font-size: clamp(26px, 3.2vw, 44px);
+  text-transform: uppercase;
+  line-height: 1;
+}
+.derniere__coord {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 26px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-.selection__fin .bouton { background: var(--nuit); color: var(--sauge); }
-.selection__fin .bouton:hover { background: #05070B; }
+.derniere__coord a:hover { text-decoration: underline; text-underline-offset: 4px; }
 
 @media (max-width: 900px) {
-  .vitrine { grid-template-columns: 1fr 1fr; }
-  .vitrine .ecran:last-child { grid-column: 1 / -1; aspect-ratio: 16 / 10; }
-  .selection { grid-template-columns: 1fr; }
-  .pratique .pastille { margin-left: 0; }
+  .moment { grid-template-columns: 1fr; }
+  .moment:nth-child(even) .moment__ecran { order: 0; }
+  .moment__ecran { max-width: 520px; }
 }
 @media (max-width: 620px) {
-  .vitrine { grid-template-columns: 1fr; }
-  .vitrine .ecran:last-child { aspect-ratio: 1 / 1; }
-  .pratique__piste { gap: 10px 22px; font-size: 11px; }
+  .commande li { font-size: 18px; padding: 8px 12px 7px; }
+}
+
+/* --------------------------------------------------------------------------
+   21. Pastille d'état — « ouvert maintenant » / « ouvre à 17h »
+   Calculée en JavaScript à partir des horaires du bar.
+   -------------------------------------------------------------------------- */
+.pastille {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--sauge);
+  font-weight: 600;
+}
+.pastille::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ambre);
+  animation: pulsation 2.4s infinite;
+}
+.pastille[data-etat="ferme"]::before {
+  background: var(--sauge-fonce);
+  animation: none;
+}
+
+@keyframes pulsation {
+  0%   { box-shadow: 0 0 0 0 rgba(217, 155, 52, 0.5); }
+  70%  { box-shadow: 0 0 0 10px rgba(217, 155, 52, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(217, 155, 52, 0); }
 }

@@ -74,47 +74,95 @@
     </section>
 
     <!-- ==================================================================
-         Le triptyque — trois écrans, comme derrière un comptoir.
-         Fichiers : assets/video/hero-1.mp4, hero-2.mp4, hero-3.mp4
-         Images d'attente : assets/img/hero-1.jpg, hero-2.jpg, hero-3.jpg
+         LA NUIT — l'ossature de la page
+         Un bar du soir se raconte dans l'ordre où il se vit.
+         Chaque moment accueille une vidéo à son format carré natif.
+         Vidéos : assets/video/hero-1.mp4, hero-2.mp4, hero-3.mp4
          ================================================================== -->
-    <section class="vitrine" aria-label="Le bar en images">
+    <section class="nuit">
+      <div class="contenant">
 
-      <figure class="ecran">
-        <video src="assets/video/hero-2.mp4"
-               poster="assets/img/hero-2.jpg"
-               autoplay muted loop playsinline preload="none"
-               aria-label="Le bar en images"></video>
-        <figcaption><b>01</b> Au comptoir</figcaption>
-      </figure>
+        <article class="moment apparait">
+          <div>
+            <span class="moment__heure">17h<small>On ouvre</small></span>
+            <h2>La pression coule</h2>
+            <p>
+              Les premiers arrivent, on tire les premières pintes. C'est le moment
+              où on essaie le bec qu'on ne connaît pas encore.
+            </p>
+            <ul class="commande">
+              <li>La Chouffe</li>
+              <li>Spritz</li>
+              <li>Picon bière</li>
+              <li>Ricard</li>
+            </ul>
+          </div>
 
-      <figure class="ecran">
-        <video src="assets/video/hero-3.mp4"
-               poster="assets/img/hero-3.jpg"
-               autoplay muted loop playsinline preload="none"
-               aria-label="Le bar en images"></video>
-        <figcaption><b>02</b> En salle</figcaption>
-      </figure>
+          <figure class="moment__ecran">
+            <video src="assets/video/hero-2.mp4"
+                   poster="assets/img/hero-2.jpg"
+                   autoplay muted loop playsinline preload="none"
+                   aria-label="Le bar en début de soirée"></video>
+          </figure>
+        </article>
 
-      <figure class="ecran">
-        <video src="assets/video/hero-1.mp4"
-               poster="assets/img/hero-1.jpg"
-               autoplay muted loop playsinline preload="none"
-               aria-label="Le bar en images"></video>
-        <figcaption><b>03</b> Côté cocktails</figcaption>
-      </figure>
+        <article class="moment apparait">
+          <div>
+            <span class="moment__heure">21h<small>Ça se remplit</small></span>
+            <h2>On partage tout</h2>
+            <p>
+              Les planches sortent, les tables se rapprochent, le son monte.
+              Personne ne compte plus les tournées.
+            </p>
+            <ul class="commande">
+              <li data-maison>Planche mixte</li>
+              <li>Camembert fondu</li>
+              <li>Sticks de poulet</li>
+              <li>Chicken burger</li>
+            </ul>
+          </div>
 
-    </section>
+          <figure class="moment__ecran">
+            <video src="assets/video/hero-3.mp4"
+                   poster="assets/img/hero-3.jpg"
+                   autoplay muted loop playsinline preload="none"
+                   aria-label="Le bar en pleine soirée"></video>
+          </figure>
+        </article>
 
-    <!-- ==================================================================
-         Barre pratique : sobre, sur une seule ligne
-         ================================================================== -->
-    <section class="pratique" aria-label="Informations pratiques">
-      <div class="contenant pratique__piste">
-        <span><a href="https://maps.google.com/?q=21+Rue+Breney,+14800+Deauville" target="_blank" rel="noopener"><strong>21 rue Breney</strong>, Deauville</a></span>
-        <span>Tous les soirs <strong>17h → 1h</strong></span>
-        <span><a href="tel:+33642418167"><strong>06 42 41 81 67</strong></a></span>
-        <span class="pastille" data-pastille data-etat="ferme">Horaires</span>
+        <article class="moment apparait">
+          <div>
+            <span class="moment__heure">Minuit<small>Ça part en soirée</small></span>
+            <h2>Le shaker prend le relais</h2>
+            <p>
+              Vingt-six cocktails à la carte, dont deux qui n'existent qu'ici.
+              Et les shooters, pour ceux qui insistent.
+            </p>
+            <ul class="commande">
+              <li data-maison>Mojito Sales Gosses</li>
+              <li data-maison>Sales Gosses</li>
+              <li>Porn Star Martini</li>
+              <li>Jäger Bomb</li>
+            </ul>
+          </div>
+
+          <figure class="moment__ecran">
+            <video src="assets/video/hero-1.mp4"
+                   poster="assets/img/hero-1.jpg"
+                   autoplay muted loop playsinline preload="none"
+                   aria-label="Le bar en fin de soirée"></video>
+          </figure>
+        </article>
+
+        <div class="derniere apparait">
+          <p>1h — dernier verre</p>
+          <div class="derniere__coord">
+            <a href="https://maps.google.com/?q=21+Rue+Breney,+14800+Deauville" target="_blank" rel="noopener">21 rue Breney, Deauville</a>
+            <a href="tel:+33642418167">06 42 41 81 67</a>
+            <span>7 soirs sur 7</span>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -205,58 +253,6 @@
           Pour savoir ce qui coule ce soir précisément, un coup de fil suffit :
           <a href="tel:+33642418167" class="accent">06 42 41 81 67</a>.
         </p>
-
-      </div>
-    </section>
-
-    <!-- ==================================================================
-         Ce qu'on commande — extrait de la vraie carte
-         ================================================================== -->
-    <section class="section">
-      <div class="contenant">
-
-        <div class="drapeau apparait">
-          <h2>Ce qu'on<br>commande</h2>
-          <p>
-            Les habitués vont droit dessus. Le reste est sur la carte :
-            whiskies, rhums, gins, vins au verre et sans alcool.
-          </p>
-        </div>
-
-        <div class="selection apparait">
-
-          <div class="selection__pile">
-            <h3>Au shaker</h3>
-            <ul>
-              <li>Mojito Sales Gosses <em>Maison</em></li>
-              <li>Sales Gosses <em>Maison</em></li>
-              <li>Porn Star Martini</li>
-              <li>Moscow Mule</li>
-              <li>Piña Colada</li>
-              <li>Ti Punch</li>
-              <li>Spritz</li>
-            </ul>
-          </div>
-
-          <div class="selection__pile">
-            <h3>Sur la planche</h3>
-            <ul>
-              <li>Planche mixte <em>Maison</em></li>
-              <li>Camembert fondu</li>
-              <li>Sticks de poulet</li>
-              <li>Sticks de mozzarella</li>
-              <li>Croque-monsieur</li>
-              <li>Chicken burger</li>
-              <li>Guacamole</li>
-            </ul>
-          </div>
-
-          <div class="selection__fin">
-            <p>Et cent-vingt autres lignes</p>
-            <a class="bouton" href="carte.html">Voir la carte</a>
-          </div>
-
-        </div>
 
       </div>
     </section>
