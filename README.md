@@ -94,6 +94,31 @@ communiqué est faux.
 
 ---
 
+## Page d'accueil : ce qu'on évite
+
+Trois automatismes rendent une page immédiatement reconnaissable comme
+générique. Ils sont bannis de l'accueil :
+
+1. **Les cartes à gros chiffres** (« 100+ Bières », « 3 Formules »). Remplacées
+   par un extrait de la vraie carte, avec de vrais noms de produits.
+2. **La rangée de pastilles translucides** sous le hero. Remplacée par un
+   bandeau vert pleine largeur, en grandes capitales condensées.
+3. **Le triptyque étiquette / titre / chapo** répété à l'identique dans chaque
+   section. Remplacé par le titre en drapeau (`.drapeau`), où le sous-titre se
+   cale contre le bas du grand titre.
+
+Si une future section a besoin d'un de ces trois motifs, c'est probablement que
+son contenu est trop faible pour tenir seul.
+
+### Faits supprimés du site
+
+Le bar ne fait **pas** 200 m², n'a **pas** de terrasse de 100 m² et la capacité
+de 150 personnes n'est pas confirmée. Ces chiffres circulent sur PagesJaunes et
+Privateaser mais sont périmés. Ils ont été retirés de toutes les pages. Ne pas
+les réintroduire sans confirmation du gérant.
+
+---
+
 ## La carte
 
 `carte.html` contient **129 entrées** réparties en neuf familles, saisies depuis

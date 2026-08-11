@@ -334,24 +334,6 @@ p { margin: 0 0 1em; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 38px; }
 
 /* Bandeau d'infos : une rangée de petites plaques, pas un filet horizontal */
-.hero__bandeau {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.hero__bandeau > * {
-  padding: 10px 16px;
-  background: rgba(35, 42, 28, 0.78);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 8px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-  color: var(--craie-doux);
-}
-.hero__bandeau strong { color: var(--sauge); font-weight: 800; }
 
 .pastille { display: inline-flex; align-items: center; gap: 9px; }
 .pastille::before {
@@ -699,7 +681,6 @@ p { margin: 0 0 1em; }
   .bec__style,
   .bec__degre { grid-column: 2; }
   .bec__degre { font-size: 19px; }
-  .hero__bandeau > * { font-size: 10px; padding: 9px 13px; }
   .pied__grille { grid-template-columns: 1fr; }
 }
 
@@ -864,4 +845,153 @@ p { margin: 0 0 1em; }
   .colonnes,
   .colonnes--large { columns: 1; }
   .ligne__nom { font-size: 22px; }
+}
+
+/* ==========================================================================
+   18. PAGE D'ACCUEIL — composants propres
+
+   On évite ici trois automatismes : la rangée de pastilles sous le hero,
+   la grille de cartes à gros chiffres, et le triptyque
+   étiquette / titre / chapo répété à l'identique dans chaque section.
+   La page raconte le bar avec le contenu réel de sa carte.
+   ========================================================================== */
+
+/* --- La bande d'adresse : un bandeau plein sous le hero, pas des pastilles --- */
+.adresse {
+  background: var(--sauge);
+  color: var(--nuit);
+}
+.adresse__piste {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 40px;
+  padding-block: 22px;
+}
+.adresse__item {
+  font-family: var(--enseigne);
+  font-size: clamp(22px, 2.6vw, 34px);
+  text-transform: uppercase;
+  line-height: 1;
+}
+.adresse__item small {
+  display: block;
+  margin-bottom: 5px;
+  font-family: var(--texte);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: rgba(17, 20, 14, 0.6);
+}
+.adresse a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.adresse__etat {
+  margin-left: auto;
+  align-self: center;
+  padding: 10px 16px;
+  background: var(--nuit);
+  color: var(--sauge);
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* --- Titre en drapeau : le sous-titre se cale contre le grand titre --- */
+.drapeau {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: end;
+  gap: 20px clamp(28px, 5vw, 72px);
+  margin-bottom: 44px;
+}
+.drapeau h2 { font-size: clamp(42px, 8vw, 104px); }
+.drapeau p { margin: 0 0 6px; font-size: 17px; color: var(--craie-doux); }
+.section--sauge .drapeau p { color: rgba(17, 20, 14, 0.78); }
+
+/* --- Extrait de carte : du contenu réel, pas des compteurs --- */
+.extrait {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+.extrait__pile {
+  padding: 26px 24px 28px;
+  background: var(--nuit-bloc);
+}
+.extrait__pile:nth-child(2) { background: rgba(35, 42, 28, 0.55); }
+
+.extrait h3 {
+  margin-bottom: 18px;
+  font-size: 13px;
+  font-family: var(--texte);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--sauge);
+}
+.extrait ul { list-style: none; margin: 0; padding: 0; }
+.extrait li {
+  font-family: var(--enseigne);
+  font-size: clamp(23px, 2.2vw, 30px);
+  line-height: 1.16;
+  text-transform: uppercase;
+  transition: color var(--transition);
+}
+.extrait li:hover { color: var(--sauge); }
+.extrait li em {
+  font-family: var(--texte);
+  font-style: normal;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--ambre);
+  vertical-align: 5px;
+  margin-left: 6px;
+}
+
+.extrait__suite {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px;
+  background: var(--sauge);
+  color: var(--nuit);
+}
+.extrait__suite p {
+  margin: 0;
+  font-family: var(--enseigne);
+  font-size: clamp(22px, 2.4vw, 32px);
+  text-transform: uppercase;
+}
+.extrait__suite .bouton { background: var(--nuit); color: var(--sauge); }
+.extrait__suite .bouton:hover { background: #05070B; }
+
+/* --- Devise du bar, en pleine largeur --- */
+.devise {
+  padding-block: clamp(56px, 9vh, 104px);
+  background: var(--nuit-haut);
+  text-align: center;
+}
+.devise p {
+  margin: 0;
+  font-family: var(--enseigne);
+  font-size: clamp(46px, 10vw, 132px);
+  line-height: 0.88;
+  text-transform: uppercase;
+  color: var(--sauge);
+}
+.devise span { color: var(--craie); }
+
+@media (max-width: 900px) {
+  .drapeau { grid-template-columns: 1fr; align-items: start; }
+  .extrait { grid-template-columns: 1fr 1fr; }
+  .adresse__etat { margin-left: 0; }
+}
+@media (max-width: 620px) {
+  .extrait { grid-template-columns: 1fr; }
+  .adresse__piste { gap: 18px 28px; padding-block: 18px; }
 }
