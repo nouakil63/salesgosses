@@ -209,9 +209,8 @@ d'une famille à l'autre, et la famille en cours de lecture est surlignée.
 **Prix.** Chaque ligne porte son prix dans un `<span class="ligne__prix">`,
 placé après le nom et l'éventuel `ligne__detail`. Les boissons en deux tailles
 affichent `25 / 50 cl` en détail et `6,50 / 11 €` en prix. Les prix sont repris
-de l'export de la caisse Cashpad (octobre 2026). Les références absentes de la caisse ont été tarifées par le bar. Seule
-**Pistolero** (tequila) reste sans prix. Les Falendières a été retiré (plus
-servi).
+de l'export de la caisse Cashpad (octobre 2026). Les références absentes de la caisse ont été tarifées par le bar. Les
+Falendières et la tequila Pistolero ont été retirées (plus servies).
 
 L'export lui-même n'est **pas** versionné : il contient les comptes du
 personnel.
