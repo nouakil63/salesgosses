@@ -209,11 +209,9 @@ d'une famille à l'autre, et la famille en cours de lecture est surlignée.
 **Prix.** Chaque ligne porte son prix dans un `<span class="ligne__prix">`,
 placé après le nom et l'éventuel `ligne__detail`. Les boissons en deux tailles
 affichent `25 / 50 cl` en détail et `6,50 / 11 €` en prix. Les prix sont repris
-de l'export de la caisse Cashpad (octobre 2026). Une ligne absente de la caisse
-reste sans prix : Jamaican Mule, Beach Bikini, Jack Daniel's Strawberry,
-Pistolero, Sauvignon, Côtes de Bergerac, Côtes de Gascogne, Bordeaux,
-Les Falendières, Sticks de poulet, Sticks de mozzarella. Get 31 aussi, la
-caisse lui donnant deux prix (8,50 et 10 €).
+de l'export de la caisse Cashpad (octobre 2026). Les références absentes de la caisse ont été tarifées par le bar. Seule
+**Pistolero** (tequila) reste sans prix. Les Falendières a été retiré (plus
+servi).
 
 L'export lui-même n'est **pas** versionné : il contient les comptes du
 personnel.
@@ -230,7 +228,6 @@ préfère l'orthographe de la caisse, il faut les remettre :
 |---|---|
 | Chardonay | Chardonnay |
 | Cote de bergerac / Gascongne | Côtes de Bergerac / Gascogne |
-| Les Falendiere | Les Falendières |
 | Planche Frommage | Planche fromage |
 | Camambert Fondu | Camembert fondu |
 | Guacamol | Guacamole |
@@ -243,7 +240,7 @@ préfère l'orthographe de la caisse, il faut les remettre :
 
 - **« Sécha da Silva »** (rhum) n'a pas été repris : l'intitulé ne correspond à
   aucune marque identifiable. À vérifier auprès du bar.
-- Les mentions **« Bordeaux »**, **« Art de Vivre »** et **« Les Falendières »**
+- Les mentions **« Bordeaux »** et **« Art de Vivre »**
   en rosé : appellations ou noms de cuvées ? Le classement peut être faux.
 - **Happy hour** : mentionné sur la caisse, horaires inconnus. L'encart en bas de
   la carte reste volontairement vague.
