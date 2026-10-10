@@ -747,6 +747,16 @@ p { margin: 0 0 1em; }
   font-family: var(--enseigne);
   font-size: 25px;
   line-height: 1.06;
+  flex: 1;
+}
+/* Prix : chiffres à chasse fixe pour que les colonnes s'alignent */
+.ligne__prix {
+  flex-shrink: 0;
+  font-family: var(--enseigne);
+  font-size: 21px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 .ligne__detail {
   flex-shrink: 0;
@@ -804,6 +814,8 @@ p { margin: 0 0 1em; }
   .colonnes,
   .colonnes--large { columns: 1; }
   .ligne__nom { font-size: 22px; }
+  .ligne { gap: 10px; }
+  .ligne__prix { font-size: 19px; }
 }
 
 /* ==========================================================================

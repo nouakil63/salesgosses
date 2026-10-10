@@ -206,9 +206,14 @@ les réintroduire sans confirmation du gérant.
 les écrans de la caisse du bar. Une barre de navigation collante permet de sauter
 d'une famille à l'autre, et la famille en cours de lecture est surlignée.
 
-**Aucun prix n'est affiché.** Ils n'ont pas été fournis. Deux options : les
-ajouter dans le `<span class="ligne__detail">` de chaque ligne, ou assumer une
-carte sans prix (courant pour un bar, mais discutable côté client).
+**Prix.** Chaque ligne porte son prix dans un `<span class="ligne__prix">`,
+placé après le nom et l'éventuel `ligne__detail`. Les boissons en deux tailles
+affichent `25 / 50 cl` en détail et `6,50 / 11 €` en prix. Les prix sont repris
+de l'export de la caisse Cashpad (octobre 2026). Les références absentes de la caisse ont été tarifées par le bar. Les
+Falendières et la tequila Pistolero ont été retirées (plus servies).
+
+L'export lui-même n'est **pas** versionné : il contient les comptes du
+personnel.
 
 Les créations maison (`Mojito Sales Gosses`, `Sales Gosses`, `Planche mixte`)
 portent la classe `ligne--maison` et sont surlignées en ambre.
@@ -222,7 +227,6 @@ préfère l'orthographe de la caisse, il faut les remettre :
 |---|---|
 | Chardonay | Chardonnay |
 | Cote de bergerac / Gascongne | Côtes de Bergerac / Gascogne |
-| Les Falendiere | Les Falendières |
 | Planche Frommage | Planche fromage |
 | Camambert Fondu | Camembert fondu |
 | Guacamol | Guacamole |
@@ -235,7 +239,7 @@ préfère l'orthographe de la caisse, il faut les remettre :
 
 - **« Sécha da Silva »** (rhum) n'a pas été repris : l'intitulé ne correspond à
   aucune marque identifiable. À vérifier auprès du bar.
-- Les mentions **« Bordeaux »**, **« Art de Vivre »** et **« Les Falendières »**
+- Les mentions **« Bordeaux »** et **« Art de Vivre »**
   en rosé : appellations ou noms de cuvées ? Le classement peut être faux.
 - **Happy hour** : mentionné sur la caisse, horaires inconnus. L'encart en bas de
   la carte reste volontairement vague.
@@ -248,7 +252,7 @@ préfère l'orthographe de la caisse, il faut les remettre :
 - [ ] Remplacer les 4 `placeholder-*.jpg` par les vraies photos
 - [ ] Extraire un vrai `hero-poster.jpg` depuis la vidéo
 - [ ] Faire valider la liste des 11 becs
-- [ ] Remplir la carte complète (`carte.html`) : intitulés et prix
+- [ ] Compléter les prix manquants de la carte (`carte.html`, voir « La carte »)
 - [ ] Vérifier le numéro de téléphone affiché (06 42 41 81 67, source publique)
 - [ ] Ajouter mentions légales et politique de confidentialité
 - [ ] Vérifier le rendu sur iPhone (Safari) et Android (Chrome)
