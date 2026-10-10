@@ -210,9 +210,13 @@ d'une famille à l'autre, et la famille en cours de lecture est surlignée.
 placé après le nom et l'éventuel `ligne__detail` (contenance, « Seul »…). Les
 boissons en deux tailles affichent `25 / 50 cl` en détail et `6,50 / 11 €` en
 prix. Une ligne sans `ligne__prix` s'affiche simplement sans prix : c'est le cas
-des références dont le tarif n'a pas encore été communiqué (whiskies, rhums,
-gins et vodkas servis seuls, vins, Picon bière, Double Ricard, Perroquet
-sauvage, Americano, Porto, Fire Bomb, cocktail « Sales Gosses »).
+des références dont le tarif n'a pas encore été confirmé (les sept vins et la
+tequila Pistolero).
+
+Source des prix : la liste donnée par le bar, complétée par l'export de la
+caisse Cashpad (fiches produits) pour les références qu'elle ne couvrait pas.
+L'export lui-même n'est **pas** versionné : il contient les comptes du
+personnel.
 
 Les créations maison (`Mojito Sales Gosses`, `Sales Gosses`, `Planche mixte`)
 portent la classe `ligne--maison` et sont surlignées en ambre.
