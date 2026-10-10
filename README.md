@@ -202,51 +202,51 @@ les réintroduire sans confirmation du gérant.
 
 ## La carte
 
-`carte.html` contient **129 entrées** réparties en neuf familles, saisies depuis
-les écrans de la caisse du bar. Une barre de navigation collante permet de sauter
-d'une famille à l'autre, et la famille en cours de lecture est surlignée.
+`carte.html` contient **266 entrées** réparties en neuf familles. Elle est
+calquée sur l'export de la caisse Cashpad (octobre 2026) : seuls les produits
+présents sur les écrans de vente sont repris, avec le prix encaissé. Une barre
+de navigation collante permet de sauter d'une famille à l'autre, et la famille
+en cours de lecture est surlignée.
 
 **Prix.** Chaque ligne porte son prix dans un `<span class="ligne__prix">`,
-placé après le nom et l'éventuel `ligne__detail` (contenance, « Seul »…). Les
-boissons en deux tailles affichent `25 / 50 cl` en détail et `6,50 / 11 €` en
-prix. Une ligne sans `ligne__prix` s'affiche simplement sans prix : c'est le cas
-des références dont le tarif n'a pas encore été confirmé (les sept vins et la
-tequila Pistolero).
+placé après le nom et l'éventuel `ligne__detail` (contenance, « Verre /
+bouteille »…). Les boissons en deux tailles affichent `25 / 50 cl` en détail et
+`6,50 / 11 €` en prix. Trois lignes restent sans prix car la caisse leur donne
+deux tarifs différents : **Pura Vida** (10 et 12 €), **Get 31** (8,50 et 10 €)
+et **Bush Triple** (7 et 8 €).
 
-Source des prix : la liste donnée par le bar, complétée par l'export de la
-caisse Cashpad (fiches produits) pour les références qu'elle ne couvrait pas.
 L'export lui-même n'est **pas** versionné : il contient les comptes du
-personnel.
+personnel. Pour une mise à jour, refaire un export et recomparer.
 
-Les créations maison (`Mojito Sales Gosses`, `Sales Gosses`, `Planche mixte`)
+Les créations maison (`Mojito Sales Gosses`, `Sales Gosses`, `Sales Gosses Spritz`, `Planche mixte`)
 portent la classe `ligne--maison` et sont surlignées en ambre.
 
-### Corrections d'orthographe appliquées
+### Intitulés retouchés
 
-Les intitulés de caisse ont été corrigés pour l'affichage public. Si le gérant
-préfère l'orthographe de la caisse, il faut les remettre :
+Les noms de caisse sont en majuscules et parfois abrégés. Le site les affiche
+en casse normale, avec quelques corrections : Sex and the beach → Sex on the
+Beach, Cosmopolitain → Cosmopolitan, Kaastel → Kasteel, Queue Charrue → Queue
+de Charrue, Gin Ford → Fords Gin, Bombay Saphir → Bombay Sapphire, cramberry →
+cranberry, Croque → Croque-monsieur. Les becs pression gardent leur nom complet
+(IPA → Jack's IPA, Triple → Triple Kannunik, Blanche → Blanche de Namur).
 
-| Caisse | Site |
-|---|---|
-| Chardonay | Chardonnay |
-| Cote de bergerac / Gascongne | Côtes de Bergerac / Gascogne |
-| Les Falendiere | Les Falendières |
-| Planche Frommage | Planche fromage |
-| Camambert Fondu | Camembert fondu |
-| Guacamol | Guacamole |
-| annanas / cramberry | ananas / cranberry |
-| Jack Daniel's Strawsberry | Jack Daniel's Strawberry |
-| Havana Espécial | Havana Especial |
-| Zubrowka | Żubrówka |
+Doublons fusionnés : Daiquiri (trois boutons à 10 €), Pornstar / Porn Star
+Martini, Get 27. Écartés : les boutons « libre » à prix saisi, Eau, Soft***,
+Bière bouteille autre.
 
 ### Points à faire valider
 
-- **« Sécha da Silva »** (rhum) n'a pas été repris : l'intitulé ne correspond à
-  aucune marque identifiable. À vérifier auprès du bar.
-- Les mentions **« Bordeaux »**, **« Art de Vivre »** et **« Les Falendières »**
-  en rosé : appellations ou noms de cuvées ? Le classement peut être faux.
-- **Happy hour** : mentionné sur la caisse, horaires inconnus. L'encart en bas de
-  la carte reste volontairement vague.
+- **Prix en double** dans la caisse : Pura Vida, Get 31, Bush Triple (voir
+  plus haut).
+- **Couleur des vins** : la caisse ne la précise pas pour Marrenon, Chouchou,
+  Lou, L'Orangerie et Art de Vivre. Les vins sont donc classés par service
+  (verre, bouteille) et non par couleur.
+- **« Bière bio Overlod »**, **« Titlar Pastèque »** : orthographe de la caisse
+  reprise telle quelle, à vérifier.
+- **Happy hour** : horaires inconnus. L'encart en bas de la carte reste
+  volontairement vague.
+- La page d'accueil annonce encore **neuf becs** et **vingt-six cocktails** :
+  la caisse compte dix becs (Lindemans en plus) et une cinquantaine de cocktails.
 
 ---
 
@@ -255,7 +255,7 @@ préfère l'orthographe de la caisse, il faut les remettre :
 - [ ] Déposer `assets/video/hero.mp4` (specs dans `assets/video/LISEZMOI.md`)
 - [ ] Remplacer les 4 `placeholder-*.jpg` par les vraies photos
 - [ ] Extraire un vrai `hero-poster.jpg` depuis la vidéo
-- [ ] Faire valider la liste des 11 becs
+- [ ] Faire valider la liste des 10 becs (Lindemans absent de l'accueil)
 - [ ] Compléter les prix manquants de la carte (`carte.html`, voir « La carte »)
 - [ ] Vérifier le numéro de téléphone affiché (06 42 41 81 67, source publique)
 - [ ] Ajouter mentions légales et politique de confidentialité
