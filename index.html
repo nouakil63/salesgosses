@@ -1,389 +1,219 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sales Gosses — Bar à bières, cocktails &amp; tapas à Deauville</title>
-  <meta name="description" content="Neuf becs pression qui tournent, vingt-six cocktails, whiskies, rhums et planches à partager. Le bar de copains de Deauville, rue Breney. Ouvert tous les soirs dès 17h.">
-
+  <title>Sales Gosses — Bar à bières & cocktails à Deauville</title>
+  <meta name="description" content="Le bar des copains à Deauville : 9 bières pression, cocktails maison et assiettes à partager. Tous les soirs dès 17h, 21 rue Breney.">
+  <meta name="theme-color" content="#10130d">
   <meta property="og:title" content="Sales Gosses — Deauville">
-  <meta property="og:description" content="Bar à bières, cocktails &amp; tapas. Neuf becs tournants, rue Breney, à deux pas de la place Morny.">
+  <meta property="og:description" content="Des pressions qui tournent, des cocktails bien faits et des soirées qui débordent.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/img/logo.png">
-  <meta name="theme-color" content="#11140E">
-
   <link rel="icon" href="assets/img/logo.png">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800;900&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=9">
 </head>
-<body>
-
+<body class="page-accueil-v2">
+  <div class="loader-accueil" id="loader-accueil" aria-hidden="true">
+    <div class="loader-accueil__interieur">
+      <span class="loader-accueil__anneau"></span>
+      <img src="assets/img/logo.png" alt="" width="150" height="150">
+      <p>Deauville · Depuis 2019</p>
+    </div>
+  </div>
+  <script>document.body.classList.add('chargement-en-cours');</script>
   <a class="saut-contenu" href="#contenu">Aller au contenu</a>
 
   <header class="entete">
-    <a class="entete__logo" href="index.html" aria-label="Sales Gosses, retour à l'accueil">
-      <img src="assets/img/logo.png" alt="Logo Sales Gosses" width="54" height="54">
+    <a class="entete__logo" href="index.html" aria-label="Sales Gosses, accueil">
+      <img src="assets/img/logo.png" alt="" width="54" height="54">
     </a>
-
     <nav class="nav" id="nav" aria-label="Navigation principale">
       <a href="index.html" aria-current="page">Accueil</a>
       <a href="carte.html">La carte</a>
-      <div class="nav__groupe" data-groupe>
-        <button class="nav__bouton" type="button" aria-expanded="false" aria-controls="tiroir-bar">
-          Le bar
-          <svg viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </button>
-        <ul class="nav__tiroir" id="tiroir-bar">
-          <li><a href="soirees.html">Soirées</a></li>
-          <li><a href="groupes.html">Groupes</a></li>
-        </ul>
-      </div>
+      <a href="groupes.html">Groupes</a>
       <a href="contact.html">Contact</a>
     </nav>
-
-    <div class="entete__action">
-      <a class="bouton" href="tel:+33642418167">Réserver</a>
-    </div>
-
-    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="entete__action"><a class="bouton" href="tel:+33642418167">Réserver</a></div>
+    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
   </header>
 
   <main id="contenu">
+    <section class="hero-v2">
+      <video class="hero-v2__video" src="assets/video/hero-2.mp4" poster="assets/img/hero-2.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+      <div class="hero-v2__voile"></div>
+      <div class="hero-v2__grain"></div>
+      <div class="hero-v2__contenu contenant">
+        <p class="hero-v2__sur-titre"><span class="pastille" data-pastille data-etat="ferme">Horaires</span> · Deauville, rue Breney</p>
+        <h1>On boit quoi<br><span>ce soir ?</span></h1>
+        <p class="hero-v2__intro">Neuf pressions, une vraie carte de cocktails et de quoi grignoter. Passez, on vous garde une place au comptoir.</p>
+        <div class="hero-v2__actions">
+          <a class="bouton bouton--grand" href="carte.html">Découvrir la carte</a>
+          <a class="lien-fleche" href="tel:+33642418167">Réserver une table <span>↗</span></a>
+        </div>
+      </div>
+      <div class="hero-v2__bas">
+        <span>Ouvert 7j/7 · 17h—1h</span>
+        <a href="#manifeste">Descendre <span>↓</span></a>
+      </div>
+    </section>
 
-    <!-- ==================================================================
-         Titre. Pas de vidéo en fond : les rushes sont carrés et de
-         définition moyenne, les étirer plein écran les rendrait flous.
-         Ils ont leur propre place, juste en dessous.
-         ================================================================== -->
-    <section class="ouverture">
+    <section class="marquee" aria-label="Les spécialités de Sales Gosses">
+      <div class="marquee__piste">
+        <span>21 rue Breney</span><i>✦</i><span>9 becs pression</span><i>✦</i><span>On ouvre à 17h</span><i>✦</i>
+        <span>21 rue Breney</span><i>✦</i><span>9 becs pression</span><i>✦</i><span>On ouvre à 17h</span><i>✦</i>
+      </div>
+    </section>
+
+    <section class="manifeste-v2 section" id="manifeste">
       <div class="contenant">
-        <img class="ouverture__marque" src="assets/img/logo.png" alt="Sales Gosses, bar à bières et cocktails à Deauville" width="120" height="120">
-
-        <h1>
-          <span class="ligne">Le bar</span>
-          <span class="ligne ligne--decalee">des copains</span>
-        </h1>
-
-        <p class="ouverture__mot">
-          Neuf becs qui tournent, des cocktails faits à la main et de quoi
-          grignoter jusqu'à la fermeture. On ouvre à 17h.
-        </p>
-
-        <div class="ouverture__actions">
-          <a class="bouton" href="carte.html">Voir la carte</a>
-          <a class="bouton bouton--creux" href="groupes.html">Privatiser le bar</a>
+        <p class="kicker apparait">Le rendez-vous de la rue Breney</p>
+        <div class="manifeste-v2__grille">
+          <h2 class="apparait">Un verre,<br>une table,<br><em>et la soirée démarre.</em></h2>
+          <div class="manifeste-v2__texte apparait">
+            <p>On ouvre à 17h, tous les jours. Certains s’installent au comptoir pour une pinte, d’autres arrivent en bande et commandent une planche.</p>
+            <p>Pas besoin d’occasion particulière. Si vous avez envie de boire un bon verre à Deauville, vous êtes au bon endroit.</p>
+            <a class="lien-fleche" href="contact.html">Nous trouver <span>↗</span></a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================================================================
-         LA NUIT — l'ossature de la page
-         Un bar du soir se raconte dans l'ordre où il se vit.
-         Chaque moment accueille une vidéo à son format carré natif.
-         Vidéos : assets/video/hero-1.mp4, hero-2.mp4, hero-3.mp4
-         ================================================================== -->
-    <section class="nuit">
-      <div class="contenant">
+    <section class="moments-v2" id="moments">
+      <div class="moments-v2__titre apparait">
+        <p class="kicker">Quelques photos, aucune pose</p>
+        <h2>Une soirée<br>aux Sales Gosses.</h2>
+        <p>Les verres arrivent, la salle se remplit et personne ne regarde vraiment l’heure.</p>
+      </div>
+      <div class="moments-v2__collage">
+        <figure class="moment moment--1"><img src="assets/img/soiree-terrasse.jpeg" alt="Une soirée animée devant Sales Gosses" loading="lazy" width="1206" height="788"><figcaption>Devant le bar</figcaption></figure>
+        <figure class="moment moment--2"><img src="assets/img/clients-bar.jpeg" alt="Des amis réunis dans le bar" loading="lazy" width="1206" height="788"><figcaption>Les habitués et les autres</figcaption></figure>
+        <figure class="moment moment--3"><img src="assets/img/ambiance-noir-blanc.jpeg" alt="La fête dans la salle en noir et blanc" loading="lazy" width="1206" height="788"><figcaption>Quand la soirée avance</figcaption></figure>
+        <figure class="moment moment--4"><img src="assets/img/soiree-au-bar.jpeg" alt="Une soirée au comptoir" loading="lazy" width="1206" height="788"><figcaption>Au comptoir</figcaption></figure>
+        <figure class="moment moment--5"><img src="assets/img/salle-sales-gosses.jpeg" alt="La salle de Sales Gosses remplie" loading="lazy" width="1206" height="788"><figcaption>À l’intérieur</figcaption></figure>
+        <figure class="moment moment--6"><img src="assets/img/ambiance-comptoir.jpeg" alt="Un groupe réuni près du comptoir" loading="lazy" width="1206" height="788"><figcaption>Un dernier ?</figcaption></figure>
+        <figure class="moment moment--7"><img src="assets/img/verres-entre-amis.jpeg" alt="Des clients qui profitent de leur soirée" loading="lazy" width="1206" height="788"><figcaption>Rue Breney, Deauville</figcaption></figure>
+        <figure class="moment moment--8"><img src="assets/img/foule-noir-blanc.jpeg" alt="La foule réunie dans le bar en noir et blanc" loading="lazy" width="1206" height="788"><figcaption>La salle est pleine</figcaption></figure>
+        <figure class="moment moment--9"><img src="assets/img/amis-comptoir.jpeg" alt="Des amis au milieu de la soirée" loading="lazy" width="1206" height="788"><figcaption>Pas encore l’heure de rentrer</figcaption></figure>
+        <figure class="moment moment--10"><img src="assets/img/groupe-terrasse.jpeg" alt="Un groupe qui fête sa soirée en terrasse" loading="lazy" width="1206" height="788"><figcaption>Tout le monde est là</figcaption></figure>
+      </div>
+      <div class="moments-v2__fin"><p>Vous venez boire quoi ?</p><a class="bouton bouton--grand" href="carte.html">Voir la carte</a></div>
+    </section>
 
-        <article class="moment apparait">
-          <div>
-            <span class="moment__heure">17h<small>On ouvre</small></span>
-            <h2>La pression coule</h2>
-            <p>
-              Les premiers arrivent, on tire les premières pintes. C'est le moment
-              où on essaie le bec qu'on ne connaît pas encore.
-            </p>
-            <ul class="commande">
-              <li>La Chouffe</li>
-              <li>Spritz</li>
-              <li>Picon bière</li>
-              <li>Ricard</li>
-            </ul>
-          </div>
-
-          <figure class="moment__ecran">
-            <video src="assets/video/hero-2.mp4"
-                   poster="assets/img/hero-2.jpg"
-                   autoplay muted loop playsinline preload="none"
-                   aria-label="Le bar en début de soirée"></video>
-          </figure>
-        </article>
-
-        <article class="moment apparait">
-          <div>
-            <span class="moment__heure">21h<small>Ça se remplit</small></span>
-            <h2>On partage tout</h2>
-            <p>
-              Les planches sortent, les tables se rapprochent, le son monte.
-              Personne ne compte plus les tournées.
-            </p>
-            <ul class="commande">
-              <li data-maison>Planche mixte</li>
-              <li>Camembert fondu</li>
-              <li>Sticks de poulet</li>
-              <li>Chicken burger</li>
-            </ul>
-          </div>
-
-          <figure class="moment__ecran">
-            <video src="assets/video/hero-3.mp4"
-                   poster="assets/img/hero-3.jpg"
-                   autoplay muted loop playsinline preload="none"
-                   aria-label="Le bar en pleine soirée"></video>
-          </figure>
-        </article>
-
-        <article class="moment apparait">
-          <div>
-            <span class="moment__heure">Minuit<small>Ça part en soirée</small></span>
-            <h2>Le shaker prend le relais</h2>
-            <p>
-              Vingt-six cocktails à la carte, dont deux qui n'existent qu'ici.
-              Et les shooters, pour ceux qui insistent.
-            </p>
-            <ul class="commande">
-              <li data-maison>Mojito Sales Gosses</li>
-              <li data-maison>Sales Gosses</li>
-              <li>Porn Star Martini</li>
-              <li>Jäger Bomb</li>
-            </ul>
-          </div>
-
-          <figure class="moment__ecran">
-            <video src="assets/video/hero-1.mp4"
-                   poster="assets/img/hero-1.jpg"
-                   autoplay muted loop playsinline preload="none"
-                   aria-label="Le bar en fin de soirée"></video>
-          </figure>
-        </article>
-
-        <div class="derniere apparait">
-          <p>1h — dernier verre</p>
-          <div class="derniere__coord">
-            <a href="https://maps.google.com/?q=21+Rue+Breney,+14800+Deauville" target="_blank" rel="noopener">21 rue Breney, Deauville</a>
-            <a href="tel:+33642418167">06 42 41 81 67</a>
-            <span>7 soirs sur 7</span>
-          </div>
+    <section class="choix-v2 section">
+      <div class="contenant choix-v2__grille">
+        <div class="choix-v2__intro apparait">
+          <p class="kicker">Ce soir au comptoir</p>
+          <h2>Les commandes qu’on entend souvent.</h2>
+          <p>Pas forcément dans cet ordre.</p>
         </div>
-
+        <div class="menu-extrait apparait">
+          <a href="carte.html"><span class="menu-extrait__nom">Jack’s IPA<small>IPA · pression</small></span><strong>01</strong></a>
+          <a href="carte.html"><span class="menu-extrait__nom">Mojito Sales Gosses<small>Signature maison</small></span><strong>02</strong></a>
+          <a href="carte.html"><span class="menu-extrait__nom">Porn Star Martini<small>Vodka · passion · vanille</small></span><strong>03</strong></a>
+          <a href="carte.html"><span class="menu-extrait__nom">Camembert fondu<small>Sur le papier, c’est à partager</small></span><strong>04</strong></a>
+        </div>
       </div>
     </section>
 
-    <!-- ==================================================================
-         SIGNATURE — Le mur des becs
-         La numérotation correspond aux tireuses réelles du comptoir.
-         À modifier à chaque rotation de fût.
-         ================================================================== -->
-    <section class="becs section" id="becs">
+    <section class="groupes-v3 section">
       <div class="contenant">
-
-        <div class="drapeau apparait">
-          <h2>Neuf pressions,<br>jamais les mêmes</h2>
-          <p>
-            Autant de becs tournants, c'est rare en Normandie. Les fûts changent
-            au fil des semaines : ce qui est écrit ici est ce qui coule ce soir.
-          </p>
+        <div class="groupes-v3__entete apparait">
+          <p class="kicker">Groupes & privatisations</p>
+          <h2>Le bar,<br><em>rien que pour vous.</em></h2>
         </div>
-
-        <div class="mur">
-
-          <div class="bec apparait">
-            <span class="bec__numero">01</span>
-            <span class="bec__nom">Bud</span>
-            <span class="bec__style">Lager américaine</span>
-            <span class="bec__degre">25 / 50 cl</span>
+        <div class="groupes-v3__corps">
+          <div class="groupes-v3__media apparait"><img src="assets/img/soiree-salle.jpeg" alt="Une soirée de groupe chez Sales Gosses" loading="lazy" width="1206" height="788"><span>21 rue Breney · Deauville</span></div>
+          <div class="groupes-v3__offre apparait">
+            <p class="groupes-v3__intro">Séminaire à Deauville, afterwork, anniversaire ou pot de départ : dites-nous ce que vous préparez, on trouve la formule qui va bien.</p>
+            <ol>
+              <li><b>01</b><span><strong>Afterwork & séminaire</strong><small>Un moment détendu après une journée de travail</small></span></li>
+              <li><b>02</b><span><strong>Anniversaire & pot de départ</strong><small>Un espace réservé pour garder tout le monde ensemble</small></span></li>
+              <li><b>03</b><span><strong>Privatisation du bar</strong><small>Le lieu rien que pour votre groupe, sur demande</small></span></li>
+            </ol>
+            <a class="bouton bouton--grand" href="groupes.html">Voir les formules</a>
           </div>
-
-          <div class="bec apparait">
-            <span class="bec__numero">02</span>
-            <span class="bec__nom">Jack's IPA</span>
-            <span class="bec__style">IPA</span>
-            <span class="bec__degre">25 / 50 cl</span>
-          </div>
-
-          <div class="bec apparait">
-            <span class="bec__numero">03</span>
-            <span class="bec__nom">NEIPA Jamaican</span>
-            <span class="bec__style">New England IPA</span>
-            <span class="bec__degre">25 / 50 cl</span>
-          </div>
-
-          <div class="bec apparait">
-            <span class="bec__numero">04</span>
-            <span class="bec__nom">La Chouffe</span>
-            <span class="bec__style">Blonde belge</span>
-            <span class="bec__degre">25 / 50 cl</span>
-          </div>
-
-          <div class="bec apparait">
-            <span class="bec__numero">05</span>
-            <span class="bec__nom">Blanche de Namur</span>
-            <span class="bec__style">Blanche</span>
-            <span class="bec__degre">25 / 50 cl</span>
-          </div>
-
-          <div class="bec apparait">
-            <span class="bec__numero">06</span>
-            <span class="bec__nom">Cuvée des Trolls</span>
-            <span class="bec__style">Blonde d'abbaye</span>
-            <span class="bec__degre">25 / 50 cl</span>
-          </div>
-
-          <div class="bec apparait">
-            <span class="bec__numero">07</span>
-            <span class="bec__nom">Kasteel Red</span>
-            <span class="bec__style">Rouge fruitée</span>
-            <span class="bec__degre">25 / 50 cl</span>
-          </div>
-
-          <div class="bec apparait">
-            <span class="bec__numero">08</span>
-            <span class="bec__nom">Triple Kannunik</span>
-            <span class="bec__style">Triple belge</span>
-            <span class="bec__degre">25 / 50 cl</span>
-          </div>
-
-          <div class="bec apparait">
-            <span class="bec__numero">09</span>
-            <span class="bec__nom">Paix Dieu</span>
-            <span class="bec__style">Triple de pleine lune</span>
-            <span class="bec__degre">25 / 50 cl</span>
-          </div>
-
         </div>
-
-        <p class="becs__note apparait">
-          Pour savoir ce qui coule ce soir précisément, un coup de fil suffit :
-          <a href="tel:+33642418167" class="accent">06 42 41 81 67</a>.
-        </p>
-
       </div>
     </section>
 
-    <!-- ==================================================================
-         Groupes
-         ================================================================== -->
-    <section class="section section--sauge">
-      <div class="contenant">
+    <section class="album-v2" aria-label="L’ambiance du bar en photos">
+      <figure class="apparait"><img src="assets/img/soiree-terrasse.jpeg" alt="Une soirée animée devant le bar Sales Gosses" loading="lazy" width="1206" height="788"><figcaption>Les soirs qui débordent</figcaption></figure>
+      <figure class="apparait"><img src="assets/img/ambiance-noir-blanc.jpeg" alt="La fête à l’intérieur du bar" loading="lazy" width="1206" height="788"><figcaption>Un peu plus tard</figcaption></figure>
+      <figure class="apparait"><img src="assets/img/ambiance-comptoir.jpeg" alt="Des clients réunis au comptoir" loading="lazy" width="1206" height="788"><figcaption>Rue Breney</figcaption></figure>
+    </section>
 
-        <div class="drapeau apparait">
-          <h2>Votre soirée,<br>notre bar</h2>
-          <p>
-            Anniversaire, pot de départ, afterwork d'équipe ou fin de séminaire :
-            on garde la place, on adapte la carte, et on s'occupe du reste.
-          </p>
+    <section class="venir-v2 section">
+      <div class="contenant venir-v2__grille">
+        <div class="apparait">
+          <p class="kicker">Passez quand vous voulez</p>
+          <h2>À ce soir ?</h2>
         </div>
-
-        <div class="duo">
-          <div class="apparait">
-            <ul class="liste-atouts">
-              <li><strong>Coin</strong> Un espace réservé dans le bar, à partir d'une dizaine de personnes</li>
-              <li><strong>Salle</strong> La salle pour vous, le bar reste ouvert. Idéal en semaine</li>
-              <li><strong>Tout</strong> Le bar entièrement privatisé, dites-nous combien vous êtes</li>
-            </ul>
-            <a class="bouton" href="groupes.html">Organiser une soirée</a>
-          </div>
-
-          <div class="cadre-photo apparait">
-            <img src="assets/img/placeholder-3.jpg" alt="Le bar préparé pour une soirée de groupe" loading="lazy" width="900" height="1100">
-          </div>
+        <div class="venir-v2__infos apparait">
+          <a href="https://maps.google.com/?q=21+Rue+Breney,+14800+Deauville" target="_blank" rel="noopener"><small>Adresse</small><strong>21 rue Breney<br>14800 Deauville</strong><span>↗</span></a>
+          <a href="tel:+33642418167"><small>Réservations</small><strong>06 42 41 81 67</strong><span>↗</span></a>
+          <div><small>Horaires</small><strong>Tous les jours<br>17h — 1h</strong></div>
         </div>
-
       </div>
     </section>
 
+    <section class="infos-importantes section" id="infos-importantes" aria-labelledby="titre-infos">
+      <div class="contenant">
+        <div class="infos-importantes__entete apparait">
+          <p class="kicker">Gardez ça sous la main</p>
+          <h2 id="titre-infos">Les infos<br>du bar.</h2>
+          <p>Pour une table à deux, passez directement. Si vous venez à plusieurs, un petit coup de fil nous aide.</p>
+        </div>
+        <div class="infos-importantes__corps">
+          <div class="infos-importantes__photos apparait">
+            <img src="assets/img/clients-bar.jpeg" alt="Des clients chez Sales Gosses" loading="lazy" width="1206" height="788">
+            <img src="assets/img/soiree-terrasse.jpeg" alt="Une soirée devant le bar" loading="lazy" width="1206" height="788">
+            <span>Photos prises chez nous,<br>les bons soirs.</span>
+          </div>
+          <div class="infos-importantes__panneau apparait">
+            <div><small>On ouvre</small><strong>Tous les jours<br>17h → 1h</strong><span class="pastille" data-pastille data-etat="ferme">Horaires</span></div>
+            <div><small>On est ici</small><strong>21 rue Breney<br>14800 Deauville</strong><a href="https://maps.google.com/?q=21+Rue+Breney,+14800+Deauville" target="_blank" rel="noopener">Itinéraire ↗</a></div>
+            <div><small>On vous répond</small><strong>06 42 41 81 67</strong><a href="tel:+33642418167">Appeler ↗</a></div>
+            <p>Pour un séminaire, un afterwork ou une privatisation, <a href="groupes.html">racontez-nous votre soirée.</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- ====================================================================
-       Pied de page
-       ==================================================================== -->
-  <footer class="pied">
+  <footer class="pied pied-v2">
     <div class="contenant">
-
-      <div class="pied__grille">
-
-        <div>
-          <img class="pied__logo" src="assets/img/logo.png" alt="Sales Gosses" width="76" height="76">
-          <p style="font-size:15px;color:var(--craie-doux);max-width:30ch">
-            Bar à bières, cocktails &amp; tapas.<br>
-            Détente, cool &amp; relax, depuis 2019.
-          </p>
-        </div>
-
-        <div>
-          <h4>Le bar</h4>
-          <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="carte.html">La carte</a></li>
-            <li><a href="soirees.html">Soirées</a></li>
-            <li><a href="groupes.html">Groupes</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Horaires</h4>
-          <ul>
-            <li>Lundi → dimanche</li>
-            <li>17h → 1h</li>
-            <li><span class="pastille" data-pastille data-etat="ferme">Horaires</span></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Nous joindre</h4>
-          <ul>
-            <li><a href="tel:+33642418167">06 42 41 81 67</a></li>
-            <li><a href="https://maps.google.com/?q=21+Rue+Breney,+14800+Deauville" target="_blank" rel="noopener">21 rue Breney, Deauville</a></li>
-            <li><a href="https://www.instagram.com/salesgossesdeauville/" target="_blank" rel="noopener">Instagram</a></li>
-            <li><a href="https://www.facebook.com/salesgossesdeauville/" target="_blank" rel="noopener">Facebook</a></li>
-          </ul>
-        </div>
-
+      <div class="pied-v2__haut">
+        <img src="assets/img/logo.png" alt="Sales Gosses" width="112" height="112">
+        <p>Bar à bières, cocktails<br>& tapas à Deauville.</p>
+        <div><a href="https://www.instagram.com/salesgossesdeauville/" target="_blank" rel="noopener">Instagram ↗</a><a href="https://www.facebook.com/salesgossesdeauville/" target="_blank" rel="noopener">Facebook ↗</a></div>
       </div>
-
-      <div class="pied__bas">
-        <span>© <span id="annee">2026</span> Sales Gosses — Deauville</span>
-        <span>L'abus d'alcool est dangereux pour la santé. À consommer avec modération.</span>
-      </div>
-
+      <div class="pied__bas"><span>© <span id="annee">2026</span> Sales Gosses — Deauville</span><span>L’abus d’alcool est dangereux pour la santé. À consommer avec modération.</span></div>
     </div>
   </footer>
 
-  <!-- Données structurées : référencement local -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BarOrPub",
-    "name": "Sales Gosses",
-    "description": "Bar à bières, cocktails et tapas à Deauville. Neuf becs pression tournants, cocktails maison, whiskies, rhums et planches à partager.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "21 rue Breney",
-      "addressLocality": "Deauville",
-      "postalCode": "14800",
-      "addressCountry": "FR"
-    },
-    "geo": { "@type": "GeoCoordinates", "latitude": 49.3600893, "longitude": 0.0784297 },
-    "telephone": "+33642418167",
-    "servesCuisine": ["Tapas", "Street food"],
-    "priceRange": "€€",
-    "openingHours": "Mo-Su 17:00-01:00",
-    "sameAs": [
-      "https://www.instagram.com/salesgossesdeauville/",
-      "https://www.facebook.com/salesgossesdeauville/"
-    ]
-  }
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BarOrPub","name":"Sales Gosses","address":{"@type":"PostalAddress","streetAddress":"21 rue Breney","addressLocality":"Deauville","postalCode":"14800","addressCountry":"FR"},"telephone":"+33642418167","openingHours":"Mo-Su 17:00-01:00","priceRange":"€€"}</script>
+  <script src="assets/js/main.js?v=7"></script>
+  <script>
+    document.getElementById('annee').textContent = new Date().getFullYear();
+    (function () {
+      var loader = document.getElementById('loader-accueil');
+      var ferme = false;
+      function terminer() {
+        if (ferme || !loader) return;
+        ferme = true;
+        loader.classList.add('est-termine');
+        document.body.classList.remove('chargement-en-cours');
+        window.setTimeout(function () { loader.remove(); }, 800);
+      }
+      window.addEventListener('load', function () {
+        window.setTimeout(terminer, 1050);
+      });
+      window.setTimeout(terminer, 2600);
+    })();
   </script>
-
-  <script src="assets/js/main.js"></script>
-  <script>document.getElementById('annee').textContent = new Date().getFullYear();</script>
-
 </body>
 </html>
