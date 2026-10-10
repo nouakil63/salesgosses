@@ -206,9 +206,13 @@ les réintroduire sans confirmation du gérant.
 les écrans de la caisse du bar. Une barre de navigation collante permet de sauter
 d'une famille à l'autre, et la famille en cours de lecture est surlignée.
 
-**Aucun prix n'est affiché.** Ils n'ont pas été fournis. Deux options : les
-ajouter dans le `<span class="ligne__detail">` de chaque ligne, ou assumer une
-carte sans prix (courant pour un bar, mais discutable côté client).
+**Prix.** Chaque ligne porte son prix dans un `<span class="ligne__prix">`,
+placé après le nom et l'éventuel `ligne__detail` (contenance, « Seul »…). Les
+boissons en deux tailles affichent `25 / 50 cl` en détail et `6,50 / 11 €` en
+prix. Une ligne sans `ligne__prix` s'affiche simplement sans prix : c'est le cas
+des références dont le tarif n'a pas encore été communiqué (whiskies, rhums,
+gins et vodkas servis seuls, vins, Picon bière, Double Ricard, Perroquet
+sauvage, Americano, Porto, Fire Bomb, cocktail « Sales Gosses »).
 
 Les créations maison (`Mojito Sales Gosses`, `Sales Gosses`, `Planche mixte`)
 portent la classe `ligne--maison` et sont surlignées en ambre.
@@ -248,7 +252,7 @@ préfère l'orthographe de la caisse, il faut les remettre :
 - [ ] Remplacer les 4 `placeholder-*.jpg` par les vraies photos
 - [ ] Extraire un vrai `hero-poster.jpg` depuis la vidéo
 - [ ] Faire valider la liste des 11 becs
-- [ ] Remplir la carte complète (`carte.html`) : intitulés et prix
+- [ ] Compléter les prix manquants de la carte (`carte.html`, voir « La carte »)
 - [ ] Vérifier le numéro de téléphone affiché (06 42 41 81 67, source publique)
 - [ ] Ajouter mentions légales et politique de confidentialité
 - [ ] Vérifier le rendu sur iPhone (Safari) et Android (Chrome)
