@@ -10,9 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=9">
 </head>
-<body>
+<body class="page-groupes-v2">
 
   <a class="saut-contenu" href="#contenu">Aller au contenu</a>
 
@@ -23,16 +23,7 @@
     <nav class="nav" id="nav" aria-label="Navigation principale">
       <a href="index.html">Accueil</a>
       <a href="carte.html">La carte</a>
-      <div class="nav__groupe nav__groupe--actif" data-groupe>
-        <button class="nav__bouton" type="button" aria-expanded="false" aria-controls="tiroir-bar">
-          Le bar
-          <svg viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </button>
-        <ul class="nav__tiroir" id="tiroir-bar">
-          <li><a href="soirees.html">Soirées</a></li>
-          <li><a href="groupes.html" aria-current="page">Groupes</a></li>
-        </ul>
-      </div>
+      <a href="groupes.html" aria-current="page">Groupes</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="entete__action"><a class="bouton" href="tel:+33642418167">Réserver</a></div>
@@ -42,59 +33,55 @@
   </header>
 
   <main id="contenu">
-    <section class="banniere">
+    <section class="groupes-hero">
+      <img src="assets/img/soiree-terrasse.jpeg" alt="Une soirée de groupe chez Sales Gosses" width="1206" height="788">
+      <div class="groupes-hero__voile"></div>
+      <div class="contenant groupes-hero__contenu">
+        <p class="kicker">Groupes & privatisation · Deauville</p>
+        <h1>Votre soirée.<br><span>Notre bar.</span></h1>
+        <p>Anniversaire, séminaire, EVG, EVJF ou afterwork. Vous nous dites combien vous êtes, on vous dit ce qu’on peut organiser.</p>
+        <a class="bouton bouton--grand" href="#demande-groupe">Demander une date</a>
+      </div>
+    </section>
+
+    <section class="groupes-usages section">
       <div class="contenant">
-        <span class="etiquette">Groupes &amp; privatisation</span>
-        <h1>On vous garde<br>la place</h1>
-        <p class="chapo">On garde la place, on adapte la carte et le son à votre soirée. Dites-nous combien vous êtes et ce que vous avez en tête.</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="contenant duo">
-        <div class="apparait">
-          <span class="etiquette">Les formules</span>
-          <h2 class="titre-section">Trois façons<br>de nous occuper</h2>
-          <ul class="liste-atouts">
-            <li><strong>Coin</strong> Un espace réservé dans le bar, à partir d'une dizaine de personnes. Sans frais de privatisation.</li>
-            <li><strong>Salle</strong> La salle pour vous, le bar reste ouvert. Idéal en semaine.</li>
-            <li><strong>Tout</strong> Le bar entièrement privatisé, pour une soirée à vous.</li>
-          </ul>
-          <a class="bouton" href="contact.html">Demander une date</a>
-        </div>
-        <div class="cadre-photo apparait">
-          <img src="assets/img/placeholder-2.jpg" alt="Le bar préparé pour une soirée privée" loading="lazy" width="900" height="1100">
+        <div class="groupes-usages__entete apparait"><p class="kicker">Toutes les bonnes raisons</p><h2>Vous fêtez quoi ?</h2><p>Du verre après un séminaire jusqu’à la privatisation complète, la formule dépend surtout du nombre de personnes et du jour choisi.</p></div>
+        <div class="groupes-usages__liste apparait">
+          <span>Anniversaire</span><span>Séminaire</span><span>Afterwork</span><span>EVG</span><span>EVJF</span><span>Pot de départ</span><span>Soirée d’entreprise</span><span>Retrouvailles</span>
         </div>
       </div>
     </section>
 
-    <section class="section section--sauge">
-      <div class="contenant">
-        <div class="apparait">
-          <span class="etiquette">Ce qu'on prévoit</span>
-          <h2 class="titre-section">Compris<br>dans la soirée</h2>
-        </div>
-        <div class="grille-cartes">
-          <article class="plaque apparait">
-            <h3>Le son</h3>
-            <p>Sono du bar, playlist calée avec vous, ou votre DJ si vous en avez un.</p>
-          </article>
-          <article class="plaque apparait">
-            <h3>Les planches</h3>
-            <p>Formules tapas à partager, dimensionnées au nombre d'invités.</p>
-          </article>
-          <article class="plaque apparait">
-            <h3>La formule boissons</h3>
-            <p>À la consommation ou au forfait, selon ce qui vous arrange.</p>
-          </article>
-          <article class="plaque apparait">
-            <h3>L'équipe</h3>
-            <p>Un interlocuteur unique avant la soirée, et le staff au complet le jour J.</p>
-          </article>
+    <section class="groupes-formules section">
+      <div class="contenant groupes-formules__grille">
+        <div class="groupes-formules__photos apparait"><img src="assets/img/soiree-salle.jpeg" alt="Le bar pendant une soirée privée" loading="lazy" width="1206" height="788"><img src="assets/img/ambiance-noir-blanc.jpeg" alt="Une soirée dans la salle" loading="lazy" width="1206" height="788"></div>
+        <div class="groupes-formules__contenu apparait">
+          <p class="kicker">Selon votre groupe</p><h2>On pousse les tables.</h2>
+          <div><b>10+</b><span><strong>Un espace réservé</strong><small>Votre groupe reste ensemble, le bar continue de vivre autour.</small></span></div>
+          <div><b>20+</b><span><strong>Une partie de la salle</strong><small>Une bonne option en semaine pour les équipes et les anniversaires.</small></span></div>
+          <div><b>Privé</b><span><strong>Tout le bar</strong><small>Le lieu rien que pour vous, avec une organisation faite ensemble.</small></span></div>
         </div>
       </div>
     </section>
 
+    <section class="demande-groupe section" id="demande-groupe">
+      <div class="contenant demande-groupe__grille">
+        <div class="demande-groupe__intro apparait"><p class="kicker">Parlez-nous de votre soirée</p><h2>Quelques infos,<br>et on vous rappelle.</h2><p>Ce formulaire prépare un message WhatsApp avec toutes les informations. Vous pourrez le vérifier avant de l’envoyer.</p><p class="demande-groupe__direct">Vous préférez appeler ?<br><a href="tel:+33642418167">06 42 41 81 67</a></p></div>
+        <form class="formulaire-groupe apparait" id="formulaire-groupe">
+          <div class="champ champ--large"><label for="type-evenement">Quel événement ?</label><select id="type-evenement" name="type" required><option value="">Choisir dans la liste</option><option>Anniversaire</option><option>Séminaire</option><option>Afterwork</option><option>EVG</option><option>EVJF</option><option>Pot de départ</option><option>Soirée d’entreprise</option><option>Privatisation complète</option><option>Autre</option></select></div>
+          <div class="champ"><label for="nom-groupe">Votre nom</label><input id="nom-groupe" name="nom" type="text" autocomplete="name" required placeholder="Prénom et nom"></div>
+          <div class="champ"><label for="telephone-groupe">Téléphone</label><input id="telephone-groupe" name="telephone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="06 00 00 00 00"></div>
+          <div class="champ"><label for="email-groupe">E-mail</label><input id="email-groupe" name="email" type="email" autocomplete="email" inputmode="email" placeholder="vous@exemple.fr"></div>
+          <div class="champ"><label for="date-groupe">Date souhaitée</label><input id="date-groupe" name="date" type="date" required></div>
+          <div class="champ"><label for="invites-groupe">Nombre de personnes</label><input id="invites-groupe" name="invites" type="number" inputmode="numeric" min="6" max="250" required placeholder="Ex. 25"></div>
+          <div class="champ champ--large"><label for="message-groupe">Votre message</label><textarea id="message-groupe" name="message" rows="5" required placeholder="Horaires envisagés, formule souhaitée, musique, boissons, contraintes particulières…"></textarea></div>
+          <label class="formulaire-groupe__accord"><input type="checkbox" required><span>J’accepte que ces informations soient utilisées pour répondre à ma demande.</span></label>
+          <button class="bouton bouton--grand" type="submit">Préparer mon message</button>
+          <p class="formulaire-groupe__aide" id="aide-formulaire">Aucun message ne part sans votre confirmation dans WhatsApp.</p>
+        </form>
+      </div>
+    </section>
   </main>
 
   <footer class="pied">
@@ -111,7 +98,6 @@
           <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="carte.html">La carte</a></li>
-            <li><a href="soirees.html">Soirées</a></li>
             <li><a href="groupes.html">Groupes</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
@@ -141,7 +127,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=7"></script>
   <script>document.getElementById('annee').textContent = new Date().getFullYear();</script>
 </body>
 </html>

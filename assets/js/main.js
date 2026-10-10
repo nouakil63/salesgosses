@@ -26,88 +26,42 @@
   var nav = document.querySelector('.nav');
 
   if (burger && nav) {
-    burger.addEventListener('click', function () {
-      var ouvert = nav.classList.toggle('est-ouvert');
+    function definirEtatMenu(ouvert) {
+      nav.classList.toggle('est-ouvert', ouvert);
       burger.setAttribute('aria-expanded', String(ouvert));
-      document.body.style.overflow = ouvert ? 'hidden' : '';
+      burger.setAttribute('aria-label', ouvert ? 'Fermer le menu' : 'Ouvrir le menu');
+      document.body.classList.toggle('menu-ouvert', ouvert);
+    }
+
+    burger.addEventListener('click', function () {
+      definirEtatMenu(!nav.classList.contains('est-ouvert'));
     });
 
     // Referme le menu quand on clique un lien
     nav.querySelectorAll('a').forEach(function (lien) {
       lien.addEventListener('click', function () {
-        nav.classList.remove('est-ouvert');
-        burger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+        definirEtatMenu(false);
       });
     });
 
     // Referme le menu avec la touche Échap
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && nav.classList.contains('est-ouvert')) {
-        burger.click();
+        definirEtatMenu(false);
         burger.focus();
       }
     });
-  }
 
-  /* ------------------------------------------------------------------
-     3. Menu déroulant « Le bar »
-     Ouverture au clic, fermeture au clic extérieur, à Échap, et au
-     départ du focus. Sur mobile, le tiroir se déplie dans le flux.
-     ------------------------------------------------------------------ */
-  var groupes = document.querySelectorAll('[data-groupe]');
-
-  function fermerGroupes(sauf) {
-    groupes.forEach(function (g) {
-      if (g === sauf) return;
-      g.dataset.ouvert = 'false';
-      var b = g.querySelector('.nav__bouton');
-      if (b) b.setAttribute('aria-expanded', 'false');
-    });
-  }
-
-  groupes.forEach(function (groupe) {
-    var bouton = groupe.querySelector('.nav__bouton');
-    if (!bouton) return;
-
-    groupe.dataset.ouvert = 'false';
-
-    bouton.addEventListener('click', function (e) {
-      e.stopPropagation();
-      var ouvert = groupe.dataset.ouvert === 'true';
-      fermerGroupes(groupe);
-      groupe.dataset.ouvert = String(!ouvert);
-      bouton.setAttribute('aria-expanded', String(!ouvert));
-    });
-
-    // Le focus quitte le groupe : on referme
-    groupe.addEventListener('focusout', function (e) {
-      if (!groupe.contains(e.relatedTarget)) {
-        groupe.dataset.ouvert = 'false';
-        bouton.setAttribute('aria-expanded', 'false');
+    // Évite de garder la page bloquée après une rotation ou un retour desktop.
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 900 && nav.classList.contains('est-ouvert')) {
+        definirEtatMenu(false);
       }
     });
-  });
-
-  if (groupes.length) {
-    document.addEventListener('click', function () {
-      fermerGroupes(null);
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key !== 'Escape') return;
-
-      var ouvert = document.querySelector('[data-groupe][data-ouvert="true"]');
-      if (!ouvert) return;
-
-      fermerGroupes(null);
-      var b = ouvert.querySelector('.nav__bouton');
-      if (b) b.focus();
-    });
   }
 
   /* ------------------------------------------------------------------
-     4. Apparition des blocs au défilement
+     3. Apparition des blocs au défilement
      ------------------------------------------------------------------ */
   var aReveler = document.querySelectorAll('.apparait');
 
@@ -134,7 +88,7 @@
   }
 
   /* ------------------------------------------------------------------
-     5. Pastille « ouvert / fermé »
+     4. Pastille « ouvert / fermé »
      Horaires : tous les jours, 17h → 1h du matin.
      À ajuster ici si les horaires d'été diffèrent.
      ------------------------------------------------------------------ */
@@ -160,7 +114,7 @@
   setInterval(majPastilles, 60000);
 
   /* ------------------------------------------------------------------
-     6. Page carte : surligne la famille en cours de lecture
+     5. Page carte : surligne la famille en cours de lecture
      ------------------------------------------------------------------ */
   var liensFamilles = document.querySelectorAll('.familles a');
 
@@ -188,11 +142,11 @@
   }
 
   /* ------------------------------------------------------------------
-     7. Les vidéos des moments de la nuit
+     6. Le triptyque
      Trois vidéos qui tournent en même temps, ça chauffe un téléphone.
-     On ne charge et ne lit que celles qui sont visibles à l'écran.
+     On ne lit que celles qui sont visibles à l'écran.
      ------------------------------------------------------------------ */
-  var ecrans = document.querySelectorAll('.moment__ecran video');
+  var ecrans = document.querySelectorAll('.ecran video');
 
   if (ecrans.length) {
     var mouvementReduit =
@@ -236,5 +190,160 @@
         });
       });
     }
+  }
+
+  /* ------------------------------------------------------------------
+     7. Carte : composition au survol et au toucher
+     Chaque ligne reste compacte, puis s'ouvre au clic sur téléphone.
+     ------------------------------------------------------------------ */
+  var lignesCarte = document.querySelectorAll('.famille .ligne');
+
+  if (lignesCarte.length) {
+    var carteTactile = window.matchMedia('(max-width: 900px), (hover: none), (pointer: coarse)');
+    var recettes = {
+      'Bud': 'Lager américaine légère, fraîche et peu amère.',
+      "Jack's IPA": 'India Pale Ale généreuse en houblon, aux notes fruitées et à l’amertume franche.',
+      'NEIPA Jamaican': 'New England IPA trouble, très aromatique, avec une amertume douce.',
+      'La Chouffe': 'Blonde belge forte, fruitée et légèrement épicée.',
+      'Blanche de Namur': 'Bière blanche belge légère, fraîche, aux notes d’agrumes.',
+      'Cuvée des Trolls': 'Blonde belge ronde, fruitée et peu amère.',
+      'Kasteel Red': 'Bière rouge belge douce, marquée par la cerise.',
+      'Triple Kannunik': 'Triple belge ample, maltée et épicée.',
+      'Paix Dieu': 'Triple belge puissante, ronde et brassée les nuits de pleine lune.',
+      'Mojito Sales Gosses': 'Rhum, citron vert, menthe, sucre et eau gazeuse. La recette de la maison.',
+      'Sales Gosses': 'Le cocktail signature du bar. Demandez au comptoir pour découvrir la recette du moment.',
+      'Mojito': 'Rhum, citron vert, menthe fraîche, sucre et eau gazeuse.',
+      'Mojito fruits': 'La base du Mojito avec une purée de fruit au choix.',
+      'Cuba libre': 'Rhum, Coca-Cola et citron vert.',
+      'Caïpirinha': 'Cachaça, citron vert frais et sucre de canne.',
+      'Caïpiroska': 'Vodka, citron vert frais et sucre de canne.',
+      'Mai Tai': 'Rhums, orange, citron vert et sirop d’orgeat.',
+      'Sex on the Beach': 'Vodka, liqueur de pêche, orange et cranberry.',
+      'Piña Colada': 'Rhum, ananas et crème de coco.',
+      'Tequila Sunrise': 'Tequila, jus d’orange et grenadine.',
+      'Spritz': 'Apéritif italien, prosecco et eau gazeuse.',
+      'Ti Punch': 'Rhum agricole, citron vert et sucre de canne.',
+      'Long Island': 'Vodka, gin, rhum, tequila, triple sec, citron et Coca-Cola.',
+      'Cosmopolitan': 'Vodka, triple sec, citron vert et cranberry.',
+      'Margarita': 'Tequila, triple sec et citron vert.',
+      'Daiquiri': 'Rhum, citron vert et sucre de canne.',
+      'Zombie': 'Assemblage de rhums, fruits exotiques, citron et épices.',
+      'Moscow Mule': 'Vodka, ginger beer et citron vert.',
+      'London Mule': 'Gin, ginger beer et citron vert.',
+      'Jamaican Mule': 'Rhum jamaïcain, ginger beer et citron vert.',
+      'Porn Star Martini': 'Vodka, passion, vanille et un trait de pétillant servi à côté.',
+      'Desperito': 'Tequila, citron vert et Desperados.',
+      'St Germain': 'Liqueur de fleur de sureau, pétillant et eau gazeuse.',
+      'Jack Apple Tonic': 'Jack Daniel’s Apple, tonic et citron.',
+      'Virgin Mojito': 'Citron vert, menthe, sucre et eau gazeuse, sans alcool.',
+      'Virgin Colada': 'Ananas et crème de coco, sans alcool.',
+      'Negroni': 'Gin, vermouth rouge et Campari.',
+      'Americano': 'Vermouth rouge, Campari et eau gazeuse.',
+      'Moresque': 'Pastis et sirop d’orgeat.',
+      'Perroquet': 'Pastis et sirop de menthe.',
+      'Tomate': 'Pastis et grenadine.',
+      'Kir': 'Vin blanc et crème de cassis.',
+      'Kir royal': 'Vin pétillant et crème de cassis.',
+      'Kiss Cool': 'Get 27 et Get 31, servi très frais.',
+      'Jäger Bomb': 'Jägermeister et boisson énergisante.',
+      'Fire Bomb': 'Jack Daniel’s Fire et boisson énergisante.',
+      'Planche fromage': 'Une sélection de fromages à partager.',
+      'Planche charcuterie': 'Un assortiment de charcuteries à partager.',
+      'Planche mixte': 'Fromages et charcuteries réunis sur la même planche.',
+      'Camembert fondu': 'Camembert chaud et coulant, servi à partager.',
+      'Sticks de poulet': 'Aiguillettes de poulet panées, servies chaudes.',
+      'Sticks de mozzarella': 'Mozzarella panée et fondante.',
+      'Guacamole': 'Avocat assaisonné, servi avec de quoi tremper.',
+      'Croque-monsieur': 'Pain toasté, jambon et fromage fondu.',
+      'Chicken burger': 'Burger au poulet, servi chaud.'
+    };
+
+    var explicationsFamille = {
+      'bieres': 'Une bière servie bien fraîche. Le style et la disponibilité peuvent varier selon les fûts.',
+      'cocktails': 'Cocktail préparé à la commande. Demandez au bar si vous souhaitez ajuster le goût ou le dosage.',
+      'sans-alcool': 'Cocktail sans alcool préparé à la commande avec jus, fruits ou sirops.',
+      'spiritueux': 'Spiritueux servi seul ou avec un soft. Demandez conseil au bar pour choisir.',
+      'aperitifs': 'Apéritif classique servi seul, allongé ou préparé selon la recette traditionnelle.',
+      'vins': 'Vin sélectionné pour la carte, disponible au verre ou à la bouteille selon la référence.',
+      'digestifs': 'Liqueur ou digestif à savourer en fin de soirée, généralement servi très frais.',
+      'tapas': 'Préparé pour accompagner les verres et se poser au milieu de la table.',
+      'softs': 'Boisson sans alcool servie fraîche, avec glaçons sur demande.'
+    };
+
+    function fermerDetails(sauf) {
+      lignesCarte.forEach(function (ligne) {
+        if (ligne === sauf) return;
+        ligne.classList.remove('est-detaillee');
+        ligne.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    lignesCarte.forEach(function (ligne) {
+      var nomEl = ligne.querySelector('.ligne__nom');
+      var famille = ligne.closest('.famille');
+      if (!nomEl || !famille) return;
+
+      var detail = document.createElement('span');
+      detail.className = 'ligne__explication';
+      detail.textContent = recettes[nomEl.textContent.trim()] || explicationsFamille[famille.id] || 'Demandez-nous au comptoir pour en savoir plus.';
+      ligne.appendChild(detail);
+      ligne.tabIndex = 0;
+      ligne.setAttribute('role', 'button');
+      ligne.setAttribute('aria-expanded', 'false');
+
+      ligne.addEventListener('click', function () {
+        // Sur ordinateur, l'explication est une bulle de survol : le clic ne
+        // doit pas figer une ligne ouverte ni faire recalculer les colonnes.
+        if (!carteTactile.matches) return;
+        var ouvrir = !ligne.classList.contains('est-detaillee');
+        fermerDetails(ligne);
+        ligne.classList.toggle('est-detaillee', ouvrir);
+        ligne.setAttribute('aria-expanded', String(ouvrir));
+      });
+
+      ligne.addEventListener('keydown', function (e) {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        if (!carteTactile.matches) return;
+        e.preventDefault();
+        ligne.click();
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.famille .ligne')) fermerDetails();
+    });
+  }
+
+  /* ------------------------------------------------------------------
+     8. Demande de groupe : prépare un message WhatsApp récapitulatif
+     ------------------------------------------------------------------ */
+  var formulaireGroupe = document.getElementById('formulaire-groupe');
+
+  if (formulaireGroupe) {
+    var dateGroupe = document.getElementById('date-groupe');
+    if (dateGroupe) dateGroupe.min = new Date().toISOString().split('T')[0];
+
+    formulaireGroupe.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!formulaireGroupe.reportValidity()) return;
+
+      var donnees = new FormData(formulaireGroupe);
+      var message = [
+        'Bonjour Sales Gosses,',
+        '',
+        'Je souhaite organiser un événement :',
+        'Type : ' + donnees.get('type'),
+        'Nom : ' + donnees.get('nom'),
+        'Téléphone : ' + donnees.get('telephone'),
+        'E-mail : ' + (donnees.get('email') || 'Non renseigné'),
+        'Date souhaitée : ' + donnees.get('date'),
+        'Nombre de personnes : ' + donnees.get('invites'),
+        '',
+        'Message :',
+        donnees.get('message')
+      ].join('\n');
+
+      window.open('https://wa.me/33642418167?text=' + encodeURIComponent(message), '_blank', 'noopener');
+    });
   }
 })();

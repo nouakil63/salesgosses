@@ -10,9 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=9">
 </head>
-<body>
+<body class="page-contact-simple">
 
   <a class="saut-contenu" href="#contenu">Aller au contenu</a>
 
@@ -23,16 +23,7 @@
     <nav class="nav" id="nav" aria-label="Navigation principale">
       <a href="index.html">Accueil</a>
       <a href="carte.html">La carte</a>
-      <div class="nav__groupe" data-groupe>
-        <button class="nav__bouton" type="button" aria-expanded="false" aria-controls="tiroir-bar">
-          Le bar
-          <svg viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </button>
-        <ul class="nav__tiroir" id="tiroir-bar">
-          <li><a href="soirees.html">Soirées</a></li>
-          <li><a href="groupes.html">Groupes</a></li>
-        </ul>
-      </div>
+      <a href="groupes.html">Groupes</a>
       <a href="contact.html" aria-current="page">Contact</a>
     </nav>
     <div class="entete__action"><a class="bouton" href="tel:+33642418167">Réserver</a></div>
@@ -42,62 +33,29 @@
   </header>
 
   <main id="contenu">
-    <section class="banniere">
+    <section class="contact-simple-hero">
       <div class="contenant">
-        <span class="etiquette">Contact &amp; accès</span>
-        <h1>On est<br>rue Breney</h1>
-        <p class="chapo">À cinquante mètres de la place Morny, cinq minutes à pied de la gare. Ouvert tous les jours de 17h à 1h.</p>
+        <p class="kicker">Contact & accès</p>
+        <h1>Sales Gosses<br><span>Deauville</span></h1>
+        <p>21 rue Breney, à deux pas de la place Morny.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="contenant duo">
-        <div class="apparait">
-          <span class="etiquette">Nous joindre</span>
-          <h2 class="titre-section">Le plus<br>simple</h2>
-          <ul class="liste-atouts">
-            <li><strong>Tél</strong> <a href="tel:+33642418167">06 42 41 81 67</a> — pour les résas et les groupes</li>
-            <li><strong>Insta</strong> <a href="https://www.instagram.com/salesgossesdeauville/" target="_blank" rel="noopener">@salesgossesdeauville</a> — les soirées et les fûts du moment</li>
-            <li><strong>Adr</strong> 21 rue Breney, 14800 Deauville</li>
-            <li><strong>Hor</strong> Tous les jours, 17h → 1h</li>
-          </ul>
-          <a class="bouton" href="tel:+33642418167">Appeler le bar</a>
-        </div>
-        <div class="apparait">
-          <div class="cadre-plan">
-            <iframe
-              title="Plan : Sales Gosses, 21 rue Breney, Deauville"
-              src="https://www.google.com/maps?q=21+Rue+Breney,+14800+Deauville&output=embed"
-              width="100%" height="440"
-              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-        </div>
+    <section class="contact-simple-infos">
+      <div class="contenant contact-simple-infos__grille">
+        <div><small>Horaires</small><strong>Tous les jours<br>17h → 1h</strong><span class="pastille" data-pastille data-etat="ferme">Horaires</span></div>
+        <div><small>Téléphone</small><strong><a href="tel:+33642418167">06 42 41 81 67</a></strong><span>Réservations et questions</span></div>
+        <div><small>Adresse</small><strong>21 rue Breney<br>14800 Deauville</strong><a href="https://maps.google.com/?q=21+Rue+Breney,+14800+Deauville" target="_blank" rel="noopener">Itinéraire ↗</a></div>
+        <div><small>Groupes</small><strong>Une soirée<br>à organiser ?</strong><a href="groupes.html#demande-groupe">Faire une demande ↗</a></div>
       </div>
     </section>
 
-    <section class="section section--sauge">
-      <div class="contenant">
-        <div class="apparait">
-          <span class="etiquette">Y venir</span>
-          <h2 class="titre-section">Depuis<br>où que ce soit</h2>
-        </div>
-        <div class="grille-cartes">
-          <article class="plaque apparait">
-            <h3>À pied</h3>
-            <p>Place Morny, puis rue Breney. 400 m depuis la gare de Deauville-Trouville.</p>
-          </article>
-          <article class="plaque apparait">
-            <h3>En voiture</h3>
-            <p>Parking de la place Morny et parking du casino à proximité immédiate.</p>
-          </article>
-          <article class="plaque apparait">
-            <h3>En train</h3>
-            <p>Gare de Deauville-Trouville, cinq minutes à pied.</p>
-          </article>
-        </div>
-      </div>
+    <section class="contact-simple-plan">
+      <div class="contact-simple-plan__carte"><iframe title="Plan : Sales Gosses, 21 rue Breney, Deauville" src="https://www.google.com/maps?q=21+Rue+Breney,+14800+Deauville&output=embed" width="100%" height="540" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+      <div class="contact-simple-plan__texte"><h2>Nous trouver</h2><p>5 minutes à pied depuis la gare de Deauville-Trouville. Le parking de la place Morny est à proximité.</p><a class="bouton bouton--grand" href="https://maps.google.com/?q=21+Rue+Breney,+14800+Deauville" target="_blank" rel="noopener">Ouvrir l’itinéraire</a></div>
     </section>
 
+    <section class="contact-simple-reseaux"><div class="contenant"><p>Suivre Sales Gosses</p><div><a href="https://www.instagram.com/salesgossesdeauville/" target="_blank" rel="noopener">Instagram ↗</a><a href="https://www.facebook.com/salesgossesdeauville/" target="_blank" rel="noopener">Facebook ↗</a></div></div></section>
   </main>
 
   <footer class="pied">
@@ -114,7 +72,6 @@
           <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="carte.html">La carte</a></li>
-            <li><a href="soirees.html">Soirées</a></li>
             <li><a href="groupes.html">Groupes</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
@@ -144,7 +101,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=7"></script>
   <script>document.getElementById('annee').textContent = new Date().getFullYear();</script>
 </body>
 </html>
